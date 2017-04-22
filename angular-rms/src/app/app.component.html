@@ -1,5 +1,5 @@
 <md-toolbar color="primary" class="main-toolbar">
-  <md-icon class="material-icons md-36 example-icon">dehaze</md-icon>
+  <button (click)="sidenav.toggle()"><md-icon class="material-icons md-36 example-icon">dehaze</md-icon></button>
   <md-icon  class="material-icons md-48 example-icon">person_pin</md-icon>
   <md-card-header>
     <md-card-title>Agus Mistiawan</md-card-title>
@@ -7,15 +7,33 @@
   </md-card-header>
 </md-toolbar>
 
-<div id="content" fxLayout="row">
-	<div id="list" fxFlex = "25%">
-    <h1>Content 1</h1>
-	</div>
-
-	<div id="detail" fxFlex = "75%">
-  <h1>Content 1</h1>
-	</div>
-</div>
+<md-sidenav-container class="example-sidenav-fab-container">
+  <md-sidenav #sidenav mode="side" opened="true">
+   
+    <div class="example-scrolling-content">
+      Lorem ipsum dolor sit amet, pede a libero aenean phasellus, lectus metus sint ut risus,
+      fusce vel in pellentesque. Nisl rutrum etiam morbi consectetuer tempor magna, aenean nullam
+      nunc id, neque vivamus interdum sociis nulla scelerisque sem, dolor id wisi turpis magna
+      aliquam magna. Risus accumsan hac eget etiam donec sed, senectus erat mattis quam, tempor
+      vel urna occaecat cras, metus urna augue nec at. Et morbi amet dui praesent, nec eu at,
+      ligula ipsum dui sollicitudin, quis nisl massa viverra ligula, mauris fermentum orci arcu
+      enim fringilla. Arcu erat nulla in aenean lacinia ullamcorper, urna ante nam et sagittis,
+      tristique vehicula nibh ipsum vivamus, proin proin. Porta commodo nibh quis libero amet.
+      Taciti dui, sapien consectetuer.
+    </div>
+  </md-sidenav>
+  <div class="example-scrolling-content">
+    Lorem ipsum dolor sit amet, pede a libero aenean phasellus, lectus metus sint ut risus, fusce
+    vel in pellentesque. Nisl rutrum etiam morbi consectetuer tempor magna, aenean nullam nunc id,
+    neque vivamus interdum sociis nulla scelerisque sem, dolor id wisi turpis magna aliquam magna.
+    Risus accumsan hac eget etiam donec sed, senectus erat mattis quam, tempor vel urna occaecat
+    cras, metus urna augue nec at. Et morbi amet dui praesent, nec eu at, ligula ipsum dui
+    sollicitudin, quis nisl massa viverra ligula, mauris fermentum orci arcu enim fringilla. Arcu
+    erat nulla in aenean lacinia ullamcorper, urna ante nam et sagittis, tristique vehicula nibh
+    ipsum vivamus, proin proin. Porta commodo nibh quis libero amet. Taciti dui, sapien
+    consectetuer.
+  </div>
+</md-sidenav-container>
 
 
 
