@@ -2,8 +2,17 @@
   padding: 0 14px;
 }
 
+md-card-header{
+  padding-top: 30px;
+  padding-left: 18px;
+}
 .example-spacer {
   flex: 1 1 auto;
+}
+.avatar{
+  height: 48px;
+  width: 48px;
+  background-color: black;
 }
 .main-toolbar{
     height: 75px;
