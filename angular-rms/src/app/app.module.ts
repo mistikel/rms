@@ -7,12 +7,12 @@ import {MaterialModule} from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
+import { SearchPanelComponent } from './search-panel/search-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideBarComponent
+    SearchPanelComponent
   ],
   imports: [
     BrowserModule,
