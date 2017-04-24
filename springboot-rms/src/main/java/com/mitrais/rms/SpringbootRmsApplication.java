@@ -9,9 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import com.mitrais.rms.model.Employee;
-import com.mitrais.rms.model.Gender;
-import com.mitrais.rms.model.Location;
+import com.mitrais.rms.entity.Employee;
+import com.mitrais.rms.entity.Location;
+import com.mitrais.rms.entity.enumareted.Gender;
+import com.mitrais.rms.entity.enumareted.MaritalStatus;
+import com.mitrais.rms.entity.enumareted.Nationality;
 import com.mitrais.rms.repository.EmployeeRepository;
 import com.mitrais.rms.repository.LocationRepositroy;
 
@@ -47,9 +49,9 @@ public class SpringbootRmsApplication {
 			e.setEmail("Mistiawanagus@gmail.com");
 			e.setHiredDate(new Date());
 			e.setLocation(l);
-			e.setMaritalStatus("Single");
+			e.setMaritalStatus(MaritalStatus.SINGLE);
 			e.setGrade("JP");
-			e.setNationality("Indonesian");
+			e.setNationality(Nationality.INDONESIAN);
 			e.setPhone("081368713112");
 			e.setImageUrl("image");
 			e.setSubDivision("SE");

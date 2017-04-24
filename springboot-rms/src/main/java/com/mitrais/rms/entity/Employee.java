@@ -1,4 +1,4 @@
-package com.mitrais.rms.model;
+package com.mitrais.rms.entity;
 /**
  * Class Entity of Employee
  */
@@ -6,6 +6,12 @@ import java.util.Date;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+
+import com.mitrais.rms.entity.enumareted.Gender;
+import com.mitrais.rms.entity.enumareted.MaritalStatus;
+import com.mitrais.rms.entity.enumareted.Nationality;
 @Entity
 @Table(name="t_employee")
 public class Employee {
@@ -27,11 +33,13 @@ public class Employee {
 	@Column(name="dob")
 	private Date dob;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="nationality", nullable=false)
-	private String nationality;
+	private Nationality nationality;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="marital_status", nullable=false)
-	private String maritalStatus;
+	private MaritalStatus maritalStatus;
 	
 	@Column(name="phone", nullable=false)
 	private String phone;
@@ -53,7 +61,8 @@ public class Employee {
 	@Column(name="division", nullable=false)
 	private String division;
 	
-	@Column(name="email", nullable=false)
+	@Email
+	@Column(name="email", unique = true, nullable=false)
 	private String email;
 	
 	@NotNull
@@ -66,16 +75,41 @@ public class Employee {
 	
 	public Employee() {}
 	
-	public String getNationality() {
+	
+	
+	public Employee(String firstName, String lastName, Gender gender, Date dob, Nationality nationality,
+			MaritalStatus maritalStatus, String phone, String subDivision, String status, Date suspendDate, Date hiredDate,
+			String grade, String division, String email, Location location, String imageUrl) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.dob = dob;
+		this.nationality = nationality;
+		this.maritalStatus = maritalStatus;
+		this.phone = phone;
+		this.subDivision = subDivision;
+		this.status = status;
+		this.suspendDate = suspendDate;
+		this.hiredDate = hiredDate;
+		this.grade = grade;
+		this.division = division;
+		this.email = email;
+		this.location = location;
+		this.imageUrl = imageUrl;
+	}
+
+
+
+	public Nationality getNationality() {
 		return nationality;
 	}
-	public void setNationality(String nationality) {
+	public void setNationality(Nationality nationality) {
 		this.nationality = nationality;
 	}
-	public String getMaritalStatus() {
+	public MaritalStatus getMaritalStatus() {
 		return maritalStatus;
 	}
-	public void setMaritalStatus(String maritalStatus) {
+	public void setMaritalStatus(MaritalStatus maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
 	public String getPhone() {

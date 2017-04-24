@@ -3,7 +3,7 @@ package com.mitrais.rms.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,18 +12,20 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.mitrais.rms.model.Employee;
-import com.mitrais.rms.model.Gender;
-import com.mitrais.rms.model.Location;
 import com.mitrais.rms.repository.EmployeeRepository;
+import com.mitrais.rms.entity.Employee;
+import com.mitrais.rms.entity.Location;
+import com.mitrais.rms.entity.enumareted.Gender;
 import com.mitrais.rms.exception.Exception;
 /**
  * 
  * @author misti
  * Controller Employee
  */
-@Controller
+@RestController
 public class EmployeeController {
 	@Autowired
 	private EmployeeRepository empRepo;
@@ -36,7 +38,7 @@ public class EmployeeController {
 	 * @return employees
 	 */
 	@GetMapping("/employees")
-	@ResponseBody
+	@ResponseStatus(HttpStatus.OK)
 	public Iterable<Employee> getEmployees(){
 		return empRepo.findAll();
 	}

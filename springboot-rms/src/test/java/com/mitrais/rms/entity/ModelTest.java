@@ -1,4 +1,4 @@
-package com.mitrais.rms.model;
+package com.mitrais.rms.entity;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.mitrais.rms.entity.Employee;
+import com.mitrais.rms.entity.Location;
+import com.mitrais.rms.entity.enumareted.Gender;
 /**
  * Unit test for model employee and location
  * @author misti

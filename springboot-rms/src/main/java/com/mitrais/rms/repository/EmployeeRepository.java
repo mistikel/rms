@@ -6,9 +6,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import com.mitrais.rms.model.Employee;
-import com.mitrais.rms.model.Gender;
-import com.mitrais.rms.model.Location;
+import com.mitrais.rms.entity.Employee;
+import com.mitrais.rms.entity.Location;
+import com.mitrais.rms.entity.enumareted.Gender;
 
 @RestResource(exported = false)
 public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long>{
