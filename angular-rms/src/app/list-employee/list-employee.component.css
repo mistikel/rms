@@ -1,0 +1,32 @@
+.material-icons.md-48 { font-size: 40px; }
+.material-icons.blue { color:royalblue }
+.material-icons.white { color:white }
+
+.material-icons{
+    margin:8px;
+}
+
+:host.highlight{
+    background-color: blue;
+}
+
+
+
+.toolbar{
+   padding-bottom: 0 !important;
+   padding-top: 0 !important;
+   background-color: #5A6BC5;
+}
+
+.content{
+    padding:5px;
+    margin: 10px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.buttonAdd{
+    position: fixed;
+    left:350px;
+    bottom:50px;
+}

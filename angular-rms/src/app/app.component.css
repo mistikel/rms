@@ -11,14 +11,7 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-.avatar{
-  height: 48px;
-  width: 48px;
-  background-color: black;
-}
-:host .main-toolbar{
-    height: 50px;
-}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -62,23 +55,14 @@
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
-
-.example-sidenav-fab-container md-sidenav {
-  max-width: 30%;
+.employee-list{
+   overflow: hidden;
+   float:left;
+   width:30%;
 }
 
-.example-sidenav-fab-container .md-sidenav-content,
-.example-sidenav-fab-container md-sidenav {
-  display: flex;
-  overflow: visible;
+.employee-detail{
+  float:left;
+  width:70%;
 }
 
-.example-scrolling-content {
-  overflow: auto;
-}
-.tab-background{
-  background-color: #5A6BC5;
-}
-.employee{
-  margin-top:60px;
-}

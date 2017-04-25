@@ -6,9 +6,9 @@ import java.util.Date;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.Email;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mitrais.rms.entity.enumareted.Gender;
 import com.mitrais.rms.entity.enumareted.MaritalStatus;
 import com.mitrais.rms.entity.enumareted.Nationality;
@@ -30,7 +30,7 @@ public class Employee {
 	@Column(name="gender", nullable = false)
 	private Gender gender;
 	
-	@Column(name="dob")
+	@Column(name="dob", nullable = false)
 	private Date dob;
 	
 	@Enumerated(EnumType.STRING)
@@ -66,8 +66,11 @@ public class Employee {
 	private String email;
 	
 	@NotNull
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE,
+		fetch = FetchType.LAZY,
+optional = true)
 	@JoinColumn(name="loc_id", referencedColumnName="loc_id")
+	@JsonBackReference
 	private Location location;
 	
 	@Column(name="image_url", nullable=false)

@@ -1,10 +1,11 @@
 package com.mitrais.rms.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="t_location")
@@ -27,8 +28,13 @@ public class Location {
 	@Column(nullable = false)
 	private String city;
 	
-	@OneToMany(mappedBy = "location", cascade=CascadeType.ALL)
-	private Set<Employee> employee;
+	@OneToMany(
+			fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL,
+			mappedBy = "location"
+	)
+	@JsonManagedReference
+	private List<Employee> employee;
 	
 	public Location() {
 		// TODO Auto-generated constructor stub
@@ -53,10 +59,10 @@ public class Location {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public Set<Employee> getEmployee() {
+	public List<Employee> getEmployee() {
 		return employee;
 	}
-	public void setEmployee(Set<Employee> employee) {
+	public void setEmployee(List<Employee> employee) {
 		this.employee = employee;
 	}
 	
