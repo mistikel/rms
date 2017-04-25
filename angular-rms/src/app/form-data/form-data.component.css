@@ -1,0 +1,40 @@
+.toolbarFooter{
+    background-color: #5A6BC5;
+    padding:5px;
+    margin :20px;
+    text-align: right;
+}
+
+.input{
+    height:500px;
+    overflow: hidden;   
+}
+
+.leftInput{
+    width: 50%;
+    float:left;
+}
+
+.rightInput{
+    float:left;
+}
+
+ul li{
+    list-style-type: none;
+    padding:8px;
+    margin: 0;
+}
+
+.btn-save{
+    margin: 5px;
+    background-color: #ff4081;
+    color: white;
+}
+
+.btn-cancel{
+    background-color: white;
+    color:black;
+}
+:host input{
+    width: 400px;
+}

@@ -1,16 +1,28 @@
 .material-icons.md-48 { font-size: 40px; }
 .material-icons.blue { color:royalblue }
+.material-icons.pink { color:#ff4081 }
 .material-icons.white { color:white }
 
-.material-icons{
+.material-icons{  
     margin:8px;
 }
+:host md-input-container{
+    color: white !important;
+}
 
+:host md-icon:hover{
+    cursor: pointer;
+}
 :host.highlight{
     background-color: blue;
 }
+.example-fab {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
 
-
+.material-icons.md-48 { font-size: 48px; }
 
 .toolbar{
    padding-bottom: 0 !important;
@@ -28,5 +40,5 @@
 .buttonAdd{
     position: fixed;
     left:350px;
-    bottom:50px;
+    bottom:45px;
 }

@@ -7,18 +7,18 @@ import {MaterialModule} from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { DetailEmployeeComponent } from './detail-employee/detail-employee.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { FormDataComponent } from './form-data/form-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchPanelComponent,
     ListEmployeeComponent,
     DetailEmployeeComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    FormDataComponent
   ],
   imports: [
     BrowserModule,

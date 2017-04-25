@@ -1,3 +1,12 @@
-.tabgrp{
-    padding-top: 11px !important;
+.material-icons.white { color:white }
+:host .material-icons{
+    margin:8px;
+    padding-top: 7px;
+}
+
+:host .content{
+    padding:5px;
+    margin: 10px;
+    height: 600px;
+    overflow-y: auto;
 }

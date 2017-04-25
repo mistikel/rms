@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchPanelComponent } from './search-panel.component';
+import { FormDataComponent } from './form-data.component';
 
-describe('SearchPanelComponent', () => {
-  let component: SearchPanelComponent;
-  let fixture: ComponentFixture<SearchPanelComponent>;
+describe('FormDataComponent', () => {
+  let component: FormDataComponent;
+  let fixture: ComponentFixture<FormDataComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchPanelComponent ]
+      declarations: [ FormDataComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchPanelComponent);
+    fixture = TestBed.createComponent(FormDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
