@@ -8,11 +8,13 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
+import { ListEmployeeComponent } from './list-employee/list-employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchPanelComponent
+    SearchPanelComponent,
+    ListEmployeeComponent
   ],
   imports: [
     BrowserModule,

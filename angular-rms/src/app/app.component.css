@@ -16,7 +16,7 @@
   width: 48px;
   background-color: black;
 }
-.main-toolbar{
+:host .main-toolbar{
     height: 50px;
 }
 .material-icons {
@@ -64,7 +64,7 @@
 }
 
 .example-sidenav-fab-container md-sidenav {
-  max-width: 20%;
+  max-width: 30%;
 }
 
 .example-sidenav-fab-container .md-sidenav-content,
@@ -75,4 +75,10 @@
 
 .example-scrolling-content {
   overflow: auto;
+}
+.tab-background{
+  background-color: #5A6BC5;
+}
+.employee{
+  margin-top:60px;
 }

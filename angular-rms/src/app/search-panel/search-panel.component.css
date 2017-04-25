@@ -1,12 +1,13 @@
 .top-bar-div {
     box-sizing: border-box;
     position: absolute;
-    height: 50px;
+    height: 20px;
     width: 100%;
     top: 0px;   
     left: 0px;
-    background-color: #34a0ed;
+    background-color: #5A6BC5;
     color: white;
+    border: 0;
 }
 
 .left-search-menu {
