@@ -1,13 +1,12 @@
+.user-title {
+    padding: 0px 40px 0px 20px;
+}
 .example-icon {
   padding: 0 14px;
 }
 :host button{
   background: transparent;
   border: 0;
-}
-md-card-header{
-  padding-top: 30px;
-  padding-left: 18px;
 }
 .example-spacer {
   flex: 1 1 auto;
@@ -18,7 +17,7 @@ md-card-header{
   background-color: black;
 }
 .main-toolbar{
-    height: 75px;
+    height: 50px;
 }
 .material-icons {
   font-family: 'Material Icons';
