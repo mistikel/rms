@@ -9,7 +9,7 @@
     <md-icon class="material-icons white">filter_list</md-icon>
   </section>
   <section class="content">
-    <app-employee *ngFor="let employee of employees" [ngClass]="{'highlight':employee.empid==selectedId}" [employee]="employee"></app-employee>
+    <app-employee *ngFor="let employee of employees" [employee]="employee"></app-employee>
     <button md-icon-button><md-icon class="material-icons pink buttonAdd md-48">add_circle</md-icon></button>
   </section>
 <section>

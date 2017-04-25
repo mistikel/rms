@@ -11,5 +11,4 @@ export class EmployeeComponent implements OnInit {
   @Input() employee;
   ngOnInit() {
   }
-
 }

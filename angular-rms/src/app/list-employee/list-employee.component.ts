@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeServiceService } from "app/employe-service.service";
-import {Http} from '@angular/http';
+import { Http } from '@angular/http';
+import { EmployeService } from "app/Service/employee.service";
+import { Employee } from "app/Model/employe.model";
 
 @Component({
   selector: 'app-list-employee',
@@ -8,13 +9,10 @@ import {Http} from '@angular/http';
   styleUrls: ['./list-employee.component.css']
 })
 export class ListEmployeeComponent implements OnInit {
-
-  constructor(private employeService:EmployeServiceService) { }
-  employees;
+  private employees : Employee[];
+  constructor(private employeService:EmployeService) { }
   ngOnInit() {
-    this.employeService.getHttp().subscribe(employees=>{
-      this.employees = employees;
-    });
+    this.employeService.get().subscribe(response => this.employees = response);
   }
 
 }

@@ -11,7 +11,8 @@ import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { DetailEmployeeComponent } from './detail-employee/detail-employee.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { FormDataComponent } from './form-data/form-data.component';
-import { EmployeServiceService } from "app/employe-service.service";
+import { EmployeService } from "app/Service/employee.service";
+
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { EmployeServiceService } from "app/employe-service.service";
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [EmployeServiceService],
+  providers: [EmployeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
