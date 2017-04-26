@@ -29,8 +29,8 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeRepository empRepo;
 	
-	public EmployeeController() {
-		// TODO Auto-generated constructor stub
+	public EmployeeController(EmployeeRepository empRepo) {
+		this.empRepo = empRepo;
 	}
 	/**
 	 * get all employee
@@ -39,7 +39,13 @@ public class EmployeeController {
 	@GetMapping("/employees")
 	@ResponseBody
 	public Iterable<Employee> getEmployees(){
-		return empRepo.findAll();
+		try {
+			return empRepo.findAll();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			throw new Exception();
+		}
+		
 	}
 	/**
 	 * post new employee
@@ -49,7 +55,13 @@ public class EmployeeController {
 	@PostMapping("/employees")
 	@ResponseBody
 	public Employee postEmployee(@RequestBody Employee employee){
-		return empRepo.save(employee);
+		try {
+			return empRepo.save(employee);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			throw new Exception();
+		}
+		
 	}
 	/**
 	 * find by last name
@@ -91,8 +103,14 @@ public class EmployeeController {
 	@PutMapping("/employees/{id}")
 	@ResponseBody
 	public void putEmployeById(@PathVariable long id, @RequestBody Employee emp){
-		emp.setEmpId(id);
-		empRepo.save(emp);
+		try {
+			emp.setEmpId(id);
+			empRepo.save(emp);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			throw new Exception();
+		}
+		
 	}
 	/**
 	 * delete or remove employee by id
@@ -101,7 +119,13 @@ public class EmployeeController {
 	@DeleteMapping("/employees/{id}")
 	@ResponseBody
 	public void deleteEmployeeById(@PathVariable long id){
-		empRepo.delete(id);
+		try {
+			empRepo.delete(id);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			throw new Exception();
+		}
+		
 	}
 	/**
 	 * Filter Employee by location and gender
@@ -112,10 +136,15 @@ public class EmployeeController {
 	@GetMapping("employee/filter/{location}/{gender}")
 	@ResponseBody
 	public List<Employee> getEmployeeFilter(@PathVariable long location, @PathVariable Gender gender){
-		Location loc = new Location();
-		loc.setId(location);
-		List<Employee> emp = empRepo.findByGenderAndLocation(gender, loc);
-		return emp;
+		try {
+			Location loc = new Location();
+			loc.setId(location);
+			List<Employee> emp = empRepo.findByGenderAndLocation(gender, loc);
+			return emp;
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			throw new Exception();
+		}
 	}
 	
 	

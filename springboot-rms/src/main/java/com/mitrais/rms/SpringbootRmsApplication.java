@@ -9,8 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import com.mitrais.rms.entity.Division;
 import com.mitrais.rms.entity.Employee;
+import com.mitrais.rms.entity.Grade;
 import com.mitrais.rms.entity.Location;
+import com.mitrais.rms.entity.SubDivision;
 import com.mitrais.rms.entity.enumareted.Gender;
 import com.mitrais.rms.entity.enumareted.MaritalStatus;
 import com.mitrais.rms.entity.enumareted.Nationality;
@@ -37,6 +40,9 @@ public class SpringbootRmsApplication {
 	@Bean
 	public CommandLineRunner printAll(ApplicationContext ctx){
 		return args-> {
+			Grade grade = new Grade("SE-JP");
+			Division div = new Division("SE");
+			SubDivision subDiv = new SubDivision(div,"SE");
 			Location l = new Location();
 			l.setCity("Jakarta");
 			locRepo.save(l);
@@ -45,16 +51,15 @@ public class SpringbootRmsApplication {
 			e.setFirstName("Agus");
 			e.setLastName("Mistiawan");
 			e.setGender(Gender.Male);
-			e.setDivision("SE");
 			e.setEmail("Mistiawanagus@gmail.com");
 			e.setHiredDate(new Date());
 			e.setLocation(l);
 			e.setMaritalStatus(MaritalStatus.SINGLE);
-			e.setGrade("JP");
+			e.setGrade(grade);
 			e.setNationality(Nationality.INDONESIAN);
 			e.setPhone("081368713112");
 			e.setImageUrl("image");
-			e.setSubDivision("SE");
+			e.setSubDivision(subDiv);
 			e.setSuspendDate(new Date());
 			e.setStatus("Contract");
 			//set everything

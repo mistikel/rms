@@ -8,7 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Email;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mitrais.rms.entity.enumareted.Gender;
 import com.mitrais.rms.entity.enumareted.MaritalStatus;
 import com.mitrais.rms.entity.enumareted.Nationality;
@@ -44,8 +44,11 @@ public class Employee {
 	@Column(name="phone", nullable=false)
 	private String phone;
 	
-	@Column(name="sub_division", nullable=false)
-	private String subDivision;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="sub_division")
+	@JsonManagedReference
+	private SubDivision subDivision;
+	
 	@Column(name="status", nullable=false)
 	private String status;
 	
@@ -55,22 +58,19 @@ public class Employee {
 	@Column(name="hired_date", nullable=false)
 	private Date hiredDate;
 	
-	@Column(name="grade", nullable=false)
-	private String grade;
-	
-	@Column(name="division", nullable=false)
-	private String division;
-	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="grade")
+	@JsonManagedReference
+	private Grade grade;
+		
 	@Email
 	@Column(name="email", unique = true, nullable=false)
 	private String email;
 	
 	@NotNull
-	@ManyToOne(cascade = CascadeType.MERGE,
-		fetch = FetchType.LAZY,
-optional = true)
-	@JoinColumn(name="loc_id", referencedColumnName="loc_id")
-	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name="location", referencedColumnName="loc_id")
+	@JsonManagedReference
 	private Location location;
 	
 	@Column(name="image_url", nullable=false)
@@ -81,8 +81,8 @@ optional = true)
 	
 	
 	public Employee(String firstName, String lastName, Gender gender, Date dob, Nationality nationality,
-			MaritalStatus maritalStatus, String phone, String subDivision, String status, Date suspendDate, Date hiredDate,
-			String grade, String division, String email, Location location, String imageUrl) {
+			MaritalStatus maritalStatus, String phone, SubDivision subDivision, String status, Date suspendDate, Date hiredDate,
+			Grade grade, String email, Location location, String imageUrl) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
@@ -95,14 +95,10 @@ optional = true)
 		this.suspendDate = suspendDate;
 		this.hiredDate = hiredDate;
 		this.grade = grade;
-		this.division = division;
 		this.email = email;
 		this.location = location;
 		this.imageUrl = imageUrl;
 	}
-
-
-
 	public Nationality getNationality() {
 		return nationality;
 	}
@@ -121,10 +117,10 @@ optional = true)
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getSubDivision() {
+	public SubDivision getSubDivision() {
 		return subDivision;
 	}
-	public void setSubDivision(String subDivision) {
+	public void setSubDivision(SubDivision subDivision) {
 		this.subDivision = subDivision;
 	}
 	public String getStatus() {
@@ -145,17 +141,11 @@ optional = true)
 	public void setHiredDate(Date hiredDate) {
 		this.hiredDate = hiredDate;
 	}
-	public String getGrade() {
+	public Grade getGrade() {
 		return grade;
 	}
-	public void setGrade(String grade) {
+	public void setGrade(Grade grade) {
 		this.grade = grade;
-	}
-	public String getDivision() {
-		return division;
-	}
-	public void setDivision(String division) {
-		this.division = division;
 	}
 	public String getEmail() {
 		return email;

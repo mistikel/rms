@@ -11,8 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.mitrais.rms.entity.Division;
 import com.mitrais.rms.entity.Employee;
+import com.mitrais.rms.entity.Grade;
 import com.mitrais.rms.entity.Location;
+import com.mitrais.rms.entity.SubDivision;
 import com.mitrais.rms.entity.enumareted.Gender;
 import com.mitrais.rms.entity.enumareted.MaritalStatus;
 import com.mitrais.rms.entity.enumareted.Nationality;
@@ -30,22 +33,24 @@ public class EmployeeRepositoryTest {
 	
 	@Test
 	public void empTest() throws Exception{
+		Grade grade = new Grade("SE-JP");
+		Division div = new Division("SE");
+		SubDivision subDiv = new SubDivision(div,"SE");
 		Location loc = new Location(1,"Jakarta");
 		Employee emp = new Employee();
-		emp.setDivision("SE");
 		emp.setDob(new Date());
 		emp.setEmail("Mistiawanagsu@gmail.com");
 		emp.setFirstName("Agus");
 		emp.setLastName("Mistiawan");
 		emp.setGender(Gender.Male);
-		emp.setGrade("JP");
+		emp.setGrade(grade);
 		emp.setHiredDate(new Date());
 		emp.setImageUrl("Image");
 		emp.setMaritalStatus(MaritalStatus.SINGLE);
 		emp.setNationality(Nationality.INDONESIAN);
 		emp.setPhone("081369713112");
 		emp.setStatus("Single");
-		emp.setSubDivision("SE");
+		emp.setSubDivision(subDiv);
 		emp.setSuspendDate(new Date());
 		emp.setLocation(loc);
 		
