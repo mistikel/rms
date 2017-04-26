@@ -1,40 +1,88 @@
-.toolbarFooter{
+.form-body {
+    box-sizing: border-box;
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 5px 0px 0px 0px;
+    overflow-x: auto;
+    overflow-y: auto;
+    margin-bottom: -30px;
+}
+
+.left-form {
+    top: 5px;
+    left: 20px;
+    width: 300px;
+    float: left;
+    margin-left: 20px;
+}
+
+.right-form {
+    top: 5px;
+    left: 340px;
+    width: 300px;
+    float: left;
+    margin-left: 20px;
+}
+
+.form-img {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.img {
+    float: left;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.upload-icon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+.form-btn {
+    position: fixed;
+    height: 46px;
+    left: 375px;
+    bottom: 0px;
     background-color: #5A6BC5;
-    padding:5px;
-    margin :20px;
-    text-align: right;
+    width: calc(100% - 375px);
+    min-width: 340px;
 }
 
-.input{
-    height:500px;
-    overflow: hidden;   
+.btn {
+    float: right;
+    padding: 5px 20px 0px 0px;
 }
 
-.leftInput{
-    width: 50%;
-    float:left;
+mdl-textfield {
+     margin-bottom: -10px;
 }
 
-.rightInput{
-    float:left;
+.date-picker {
+    margin-bottom: 6px;
 }
 
-ul li{
-    list-style-type: none;
-    padding:8px;
-    margin: 0;
+/deep/ .mdl-textfield .mdl-textfield__input {
+    font-size: 14px;    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.btn-save{
-    margin: 5px;
-    background-color: #ff4081;
-    color: white;
+/deep/ .date-picker .md2-datepicker-trigger .md2-datepicker-input .md2-datepicker-value {
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.btn-cancel{
-    background-color: white;
-    color:black;
-}
-:host input{
-    width: 400px;
+/deep/ .date-picker .md2-datepicker-trigger .md2-datepicker-input .md2-datepicker-arrow {
+    /*border-top: 5px solid transparent;*/
+    display:none;
 }

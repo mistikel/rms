@@ -1,44 +1,17 @@
-.material-icons.md-48 { font-size: 40px; }
-.material-icons.blue { color:royalblue }
-.material-icons.pink { color:#ff4081 }
-.material-icons.white { color:white }
+.scroll-bar-div {
+    box-sizing: border-box;
+    position: absolute;
+    height: auto;
+    width: 375px;
+    padding: 0px;
+    top: 50px;
+    bottom: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
-.material-icons{  
-    margin:8px;
-}
-:host md-input-container{
-    color: white !important;
-}
-
-:host md-icon:hover{
-    cursor: pointer;
-}
-:host.highlight{
-    background-color: blue;
-}
-.example-fab {
+.floating-button {
   position: absolute;
   right: 20px;
   bottom: 10px;
-}
-
-.material-icons.md-48 { font-size: 48px; }
-
-.toolbar{
-   padding-bottom: 0 !important;
-   padding-top: 0 !important;
-   background-color: #5A6BC5;
-}
-
-.content{
-    padding:5px;
-    margin: 10px;
-    height: 600px;
-    overflow-y: auto;
-}
-
-.buttonAdd{
-    position: fixed;
-    left:350px;
-    bottom:45px;
 }

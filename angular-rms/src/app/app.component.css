@@ -1,68 +1,58 @@
+.menu-button {
+    float: left;
+}
+.user-img {
+    float:left;
+    border-radius: 100%;
+}
+
 .user-title {
-    padding: 0px 40px 0px 20px;
-}
-.example-icon {
-  padding: 0 14px;
-}
-:host button{
-  background: transparent;
-  border: 0;
-}
-.example-spacer {
-  flex: 1 1 auto;
+    padding: 0px 0px 0px 10px;
 }
 
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
+.user-title a {
+    color: white;
 }
-/* Rules for sizing the icon. */
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-
-/* Rules for using icons as black on a light background. */
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
-
-/* Rules for using icons as white on a dark background. */
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-.example-sidenav-fab-container {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+.toolbar {
+    box-sizing: border-box;
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    background-color: #4051B5;
+    top: 0px;
+    left: 0px;
+    right: auto;
+    padding: 10px;
+    color: white;
+    min-width: 855px;
 }
-.employee-list{
-   overflow: hidden;
-   float:left;
-   width:30%;
+.toolbar span {
+    float: left;
 }
 
-.employee-detail{
-  float:left;
-  width:70%;
+.toolbar-right {
+    float: right;
+    width: fit-content;
 }
 
+.right-container {
+    min-width: 480px;
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 60px;
+    left: 375px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.left-container {
+    position: absolute;
+    width: 375px;
+    height: auto;
+    top: 60px;   
+    left: 0px;
+    bottom: 0px;
+    border: solid rgba(0, 0, 0, 0.5);
+    border-width: 0px 1px 0px 0px;
+}

@@ -1,15 +1,6 @@
-<section>
-  <section class="toolbar">
-    <md-icon class="material-icons white">search</md-icon>
-    <md-input-container  >
-      <input mdInput placeholder="Search" color ="accent">
-    </md-input-container>
-    <md-icon class="material-icons white">delete</md-icon>
-    <md-icon class="material-icons white">sort</md-icon>
-    <md-icon class="material-icons white">filter_list</md-icon>
-  </section>
-  <section class="content">
-    <app-employee *ngFor="let employee of employees" [employee]="employee"></app-employee>
-    <button md-icon-button><md-icon class="material-icons pink buttonAdd md-48">add_circle</md-icon></button>
-  </section>
-<section>
+<search-bar [selectedEmployeeId]="selectedEmployee?selectedEmployee.Id:''" [employeeCount]="employees.length" (searchEmp)="onEmpSearch($event)" (deleteClick)="onEmpDelete()" (sortClick)="onEmpSort($event)"></search-bar>
+<div class="scroll-bar-div">
+    <employee [employees]="employees" [sortFlag]="sortFlag" [selectedEmployee]="selectedEmployee" (clicked)="onEmployeeClicked($event)">
+    </employee>
+</div>
+<button md-mini-fab class="floating-button" (click)="setNew()"><md-icon>add</md-icon></button>

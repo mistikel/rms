@@ -1,10 +1,17 @@
-<section>
-    <md-card class="employeeData">
-        <img src="" class="profilePicture">
-        <p class>
-            {{employee.firstName}} {{employee.lastName}} <br>
-            {{employee.grade}} <br>
-            {{employee.phone}}
-        <p>
-    </md-card>
-</section>
+<div mwSelected class="emp-card" (click)="onClick(employee)" [class.emp-card-selected]="employee == selectedEmployee" 
+*ngFor="let employee of employees | orderByAscDesc:sortFlag">
+    <img class="img-card" src="src/images/no-image.png">
+    <div class="card-left">
+        <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>
+        <a class="emp-info">{{employee.grade}}, {{employee.division}}<br>
+                            {{employee.location}}, {{employee.phone}}</a>
+    </div>
+    <div class="card-right">
+        <a class="emp-info">{{employee.hiredDate}}</a><br> 
+        <!--| date:'shortDate' -->
+        <div class="card-right-icon">
+            <md-icon svgIcon="radio_button_checked"></md-icon>
+            <md-icon svgIcon="chevron_right"></md-icon>
+        </div>
+    </div>
+</div>

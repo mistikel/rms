@@ -6,8 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
-   color = 'primary';
-  mode = 'determinate';
-  value = 50;
+  selectedEmployee;
+  initialEmployee;
+  onEmployeeInListClicked(emp) {
+    this.selectedEmployee = emp;
+  }
+
+  cancelFormClicked(emp) {
+    this.selectedEmployee = emp;
+  }
+
+  saveFormClicked(emp) {
+    this.initialEmployee = emp;
+  }
 }

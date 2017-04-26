@@ -1,24 +1,59 @@
-.employeeData{
-   margin:5px;
-   padding:4px;
+.emp-card {
+    box-sizing: border-box;
+    width: 375px;
+    height: 82px;
+    padding: 10px 27px 10px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
-.employeeData:hover{
-    background-color: #5A6BC5;
+.emp-card-selected {
+    background-color: #E0E0E0;
+    border-bottom: none;
+    box-shadow: 0px 1px 5px pink;
 }
 
-.employeeData:active{
-    background-color: #ff4081;
+.emp-card.hovering {
+    background-color: #E0E0E0;
+    border-bottom: none;
+    box-shadow: 0px 1px 5px grey;
 }
 
-:host.highlight .employeeData{
-   background-color: deepskyblue;
+.emp-card-selected.hovering {
+    background-color: #E0E0E0;
 }
 
-.profilePicture{
-    width:70px;
-    height:70px;
-    float:left;
-    overflow: hidden;
-    padding:5px;
+.img-card {
+    float: left;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+}
+
+.card-left {
+    padding: 0px 0px 0px 10px;
+    float: left;
+}
+
+.card-right {
+    float: right;
+}
+
+.card-right {
+    float: right;
+}
+
+.card-right-icon {
+    float: right;
+    padding: 10px 0px 0px 0px;
+}
+
+.emp-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.emp-info {
+    font-size: 12px;
+    font-weight: initial;
 }

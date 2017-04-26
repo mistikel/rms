@@ -1,12 +1,16 @@
-.material-icons.white { color:white }
-:host .material-icons{
-    margin:8px;
-    padding-top: 7px;
+:host .toolbar {
+    box-sizing: border-box;
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    top: 0px;   
+    left: 0px;
+    bottom: 0px;
+    padding: 1px 0px 0px 2px;
+    background-color: #5A6BC5;
 }
 
-:host .content{
-    padding:5px;
-    margin: 10px;
-    height: 600px;
-    overflow-y: auto;
+.nav-icon {
+    padding: 10px 0px 0px 0px;
+    color: white!important;
 }

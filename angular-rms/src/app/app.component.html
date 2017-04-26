@@ -1,15 +1,25 @@
-<md-toolbar color="primary">
-  <button (click)="sidenav.toggle()" md-icon-button><md-icon class="material-icons md-36 example-icon">dehaze</md-icon></button>
-  <button md-icon-button><md-icon  class="material-icons md-48 example-icon">person_pin</md-icon></button>
+<div class="toolbar">
+  <button md-icon-button class="menu-button"><md-icon>menu</md-icon></button>
+  <img class="user-img" src="src/images/no-image.png" width="40" height="40">
   <span>
     <div class="user-title">
       <a>Agus Mistiawan</a> <br>
       <a>SE - JP</a>
     </div>
   </span>
-   <span class="example-spacer"></span>
-  <button  md-icon-button><md-icon class="material-icons">settings</md-icon></button>
-  <button  md-icon-button><md-icon class="material-icons">power_settings_new</md-icon></button>
-</md-toolbar>
-<app-list-employee class="employee-list"></app-list-employee>
-<app-detail-employee class="employee-detail"></app-detail-employee>
+  <div class="toolbar-right">
+    <button md-icon-button class="menu-button"><md-icon>settings</md-icon></button>
+    <button md-icon-button class="menu-button"><md-icon>power_settings_new</md-icon></button>
+  </div>
+</div>
+
+<div>
+  <div class="left-container">
+    <list-employee (employeeClicked)="onEmployeeInListClicked($event)" [selectedEmployee]="selectedEmployee" [initialEmpSave]="initialEmployee"></list-employee>
+  </div>
+
+  <div class="right-container">
+    <app-detail-employee></app-detail-employee>
+    <app-form-data (cancelClicked)="cancelFormClicked($event)" (saveClicked)="saveFormClicked($event)" [selectedEmpSelect]="selectedEmployee?selectedEmployee.Id:''"></app-form-data>
+  </div>
+</div>

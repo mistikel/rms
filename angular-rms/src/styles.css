@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  margin: 0;
-  background-color: #FAFAFA;
-  height: 100%;
-  overflow: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body a{
+    color: black;
+    font-weight: initial;
 }

@@ -1,113 +1,35 @@
-<section>
-<form>
-  <section class="input">
-
-  <section class="leftInput">
-  <ul>
-    <li>
-       <md-input-container>
-         <input  mdInput placeholder="First Name">
-      </md-input-container>
-      
-    </li>
-
-    <li>
-       <md-input-container>
-         <input  mdInput placeholder="Last Name">
-      </md-input-container>
-       
-    
-    </li>
-
-    <li>
-     <md-select placeholder="Gender" name="gender">
-     <md-option>
-      Male
-      </md-option>
-      </md-select>
-   </li>
-
-    <li>
-       <md-input-container>
-         <input  type="date" mdInput placeholder="Date of Birth">
-      </md-input-container>
-    </li>
-
-     <li>
-       <md-input-container>
-         <input   mdInput placeholder="Nationality">
-      </md-input-container>
-      
-    </li>
-
-     <li>
-       <md-input-container>
-         <input  mdInput placeholder="Martial Status">
-      </md-input-container>
-      
-    </li>
-
-
-    <li>
-       <md-input-container> 
-         <input  mdInput placeholder="Phone" >
-      </md-input-container>
-      
-    </li>
-  </ul>
-  </section>
-
-<section class="rightInput">
-  <ul>
-    <li>
-       <md-input-container>
-         <input  mdInput placeholder="Sub Division">
-      </md-input-container>
-     
-    </li>
-
-    <li>
-       <md-input-container>
-         <input  mdInput placeholder="Suspend Date" >
-      </md-input-container>
-      
-    </li>
-    
-    <li>
-       <md-input-container>
-         <input  type="date" mdInput placeholder="Hire Date" value="">
-      </md-input-container>
-    </li>
-
-    <li>
-     <md-select placeholder="Grade" name="grade">
-     <md-option >
-      SE=JP
-      </md-option>
-      </md-select>
-   </li>
-
-    <li>
-     <md-select placeholder="Division" name="division">
-     <md-option>
-      SE
-      </md-option>
-      </md-select>
-    </li>
-
-    <li>
-       <md-input-container>
-         <input  mdInput placeholder="Email">
-      </md-input-container>
-    </li>
-  </ul>
-  </section>
-  </section>
-
-  <section class="toolbarFooter">
-  <button md-button class="btn-cancel">Cancel</button>
-  <button md-button class="btn-save"type="submit">Save</button>
-  </section>
-  </form>
-</section>
-
+<div *ngIf="eService.showForm==true" class="form-body">
+    <div class=left-form>
+        <mdl-textfield type="text" label="First Name" [(ngModel)]="initialEmployee.firstName" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="Last Name" [(ngModel)]="initialEmployee.lastName" floating-label></mdl-textfield>
+        <material-select [name]="'gender'" [(selectedValue)]="initialEmployee.gender" [items]="lookupList.gender" [label]="'Gender'"></material-select>
+        <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Date Of Birth" style="width: 300px"
+            [(ngModel)]="initialEmployee.dob"></md2-datepicker>
+        <mdl-textfield type="text" label="Nationality" [(ngModel)]="initialEmployee.nationality" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="Marital Status" [(ngModel)]="initialEmployee.maritalStatus" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="Phone" [(ngModel)]="initialEmployee.phone" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="Email" [(ngModel)]="initialEmployee.email" floating-label></mdl-textfield>
+    </div>
+    <div class=right-form>
+        <mdl-textfield type="text" label="Sub Division" [(ngModel)]="initialEmployee.subDivision" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="Status" [(ngModel)]="initialEmployee.status" floating-label></mdl-textfield>
+        <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Suspend Date" style="width: 300px"
+            [(ngModel)]="initialEmployee.suspendDate"></md2-datepicker>
+        <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Hired Date" style="width: 300px"
+            [(ngModel)]="initialEmployee.hiredDate"></md2-datepicker>
+        <material-select [name]="'grade'" [(selectedValue)]="initialEmployee.grade" [items]="lookupList.grade" [label]="'Grade'"></material-select>
+        <material-select [name]="'division'" [(selectedValue)]="initialEmployee.division" [items]="lookupList.division" [label]="'Division'"></material-select>
+        <mdl-textfield type="text" label="Location" [(ngModel)]="initialEmployee.location" floating-label></mdl-textfield>
+    </div>
+    <div class="form-img">
+        <img class="img" [src]="employeeImage" (click)="fileInput.click()">
+        <button class="upload-icon" (click)="fileInput.click()" md-icon-button><md-icon>camera</md-icon></button>
+    </div>
+    <input #fileInput type="file" hidden="hidden" (change)="onChange($event)"/>
+    <div class="form-btn">
+        <div class="btn">
+            <button md-raised-button (click)="onCancel()">CANCEL</button>
+            <button md-raised-button color="accent" (click)="onSave()">SAVE</button>
+        </div>
+    </div>
+</div>

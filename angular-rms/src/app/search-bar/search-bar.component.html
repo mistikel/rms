@@ -1,0 +1,20 @@
+<div class="search-div">
+    <div class="left-search-menu">
+        <button md-icon-button><md-icon>search</md-icon></button>
+    </div>
+    <div class="left-search-input">
+        <md-input-container>
+            <input mdInput (keyup)="onKeyUp($event)" class="input-search" placeholder="Search" [class.delete-visible]="selectedEmployeeId">
+        </md-input-container>
+    </div>
+    <div class="search-chip">
+        <md-chip-list>
+            <md-chip>{{employeeCount}}</md-chip>
+        </md-chip-list>
+    </div>
+    <div class="right-search">
+        <button *ngIf="selectedEmployeeId" (click)="onDelete()" md-icon-button><md-icon>delete</md-icon></button>
+        <button md-icon-button (click)="onSort()"><md-icon >sort</md-icon></button>
+        <button md-icon-button (click)="openDialog()"><md-icon>filter_list</md-icon></button>
+    </div>
+</div>
