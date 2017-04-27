@@ -7,21 +7,22 @@
     cursor: pointer;
 }
 
+.emp-card:hover{
+    background-color: #E0E0E0;
+    border-bottom: none;
+    box-shadow: 0px 1px 5px grey;
+}
+
+.emp-card-selected:hover{
+     background-color: #E0E0E0;
+}
+
 .emp-card-selected {
     background-color: #E0E0E0;
     border-bottom: none;
     box-shadow: 0px 1px 5px pink;
 }
 
-.emp-card.hovering {
-    background-color: #E0E0E0;
-    border-bottom: none;
-    box-shadow: 0px 1px 5px grey;
-}
-
-.emp-card-selected.hovering {
-    background-color: #E0E0E0;
-}
 
 .img-card {
     float: left;

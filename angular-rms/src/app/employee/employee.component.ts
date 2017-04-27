@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Employee } from "app/model/employee.model";
 
 @Component({
@@ -8,10 +8,16 @@ import { Employee } from "app/model/employee.model";
 })
 export class EmployeeComponent implements OnInit {
 
+  @Input() selectedEmployee;
   @Input() employee : Employee;
+  @Output() selected = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelected(emp){
+    this.selected.emit(emp);
   }
 
 }

@@ -9,15 +9,18 @@ import { Employee } from "app/model/employee.model";
 })
 export class ListEmployeeComponent implements OnInit {
   employees : Employee[];
-
+  selectedEmployee : Employee;
   constructor(private empService : EmployeeService) { } 
 
   ngOnInit() {
     this.empService.get()
     .subscribe(employees => {
       this.employees = employees;
-      console.log(employees);
     });
+  }
+
+  onEmployeeSelected(empSelect){
+    this.selectedEmployee = empSelect;
   }
 
 }

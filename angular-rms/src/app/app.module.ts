@@ -14,7 +14,7 @@ import { SearchComponent } from './search/search.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { FormEmployeeComponent } from './employee/form-employee/form-employee.component';
 import { EmployeeService } from "app/service/employee.service";
-import { SelectedDirective } from "app/directive-helper/selected.directive";
+import { SharedService } from "app/service/share.service";
 
 
 @NgModule({
@@ -25,7 +25,6 @@ import { SelectedDirective } from "app/directive-helper/selected.directive";
     SearchComponent,
     EmployeeComponent,
     FormEmployeeComponent,
-    SelectedDirective
   ],
   entryComponents: [
   ],
@@ -44,7 +43,7 @@ import { SelectedDirective } from "app/directive-helper/selected.directive";
     MdlModule,
     Md2Module.forRoot()
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService,SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
