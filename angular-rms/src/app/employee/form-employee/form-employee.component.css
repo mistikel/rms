@@ -7,7 +7,7 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
-    padding: 5px 0px 0px 0px;
+    padding: 5px 20px 0px 0px;
     overflow-x: auto;
     overflow-y: auto;
     margin-bottom: -30px;
@@ -66,6 +66,9 @@
 
 mdl-textfield {
      margin-bottom: -10px;
+}
+md-select{
+    width: 100%
 }
 
 .date-picker {

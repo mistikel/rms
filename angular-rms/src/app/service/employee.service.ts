@@ -20,4 +20,16 @@ export class EmployeeService{
         return this.http.get(url)
         .map(response=>response.json());
     }
+
+    getEmployeeById(empId): Observable<Employee> {
+    let url = "/api/employees/" + empId;
+    return this.http.get(url)
+      .map(response => {
+        if (response != null) {
+          return response.json();
+        } else {
+          return null
+        }
+      });
+  }
 }

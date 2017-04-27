@@ -9,11 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.mitrais.rms.entity.Division;
 import com.mitrais.rms.entity.Employee;
-import com.mitrais.rms.entity.Grade;
 import com.mitrais.rms.entity.Location;
-import com.mitrais.rms.entity.SubDivision;
 import com.mitrais.rms.entity.enumareted.Gender;
 import com.mitrais.rms.entity.enumareted.MaritalStatus;
 import com.mitrais.rms.entity.enumareted.Nationality;
@@ -37,9 +34,6 @@ public class EmployeeControllerTest {
 	public void setup(){
 		this.mockEmployee = MockMvcBuilders.standaloneSetup(new EmployeeController(empRepo)).build();
 		this.empRepo.deleteAll();
-		Grade grade = new Grade("SE-JP");
-		Division div = new Division("SE");
-		SubDivision subDiv = new SubDivision(div,"SE");
 		Location loc = new Location(1,"Jakarta");
 		Employee emp = new Employee();
 		emp.setDob(new Date());
@@ -47,14 +41,14 @@ public class EmployeeControllerTest {
 		emp.setFirstName("Agus");
 		emp.setLastName("Mistiawan");
 		emp.setGender(Gender.Male);
-		emp.setGrade(grade);
+		emp.setGrade("SE-JP");
 		emp.setHiredDate(new Date());
 		emp.setImageUrl("Image");
-		emp.setMaritalStatus(MaritalStatus.SINGLE);
+		emp.setMaritalStatus(MaritalStatus.Single);
 		emp.setNationality(Nationality.INDONESIAN);
 		emp.setPhone("081369713112");
 		emp.setStatus("Single");
-		emp.setSubDivision(subDiv);
+		emp.setSubDivision("SE");
 		emp.setSuspendDate(new Date());
 		emp.setLocation(loc);
 		

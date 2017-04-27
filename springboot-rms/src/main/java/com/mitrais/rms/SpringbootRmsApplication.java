@@ -9,19 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import com.mitrais.rms.entity.Division;
 import com.mitrais.rms.entity.Employee;
-import com.mitrais.rms.entity.Grade;
 import com.mitrais.rms.entity.Location;
-import com.mitrais.rms.entity.SubDivision;
 import com.mitrais.rms.entity.enumareted.Gender;
 import com.mitrais.rms.entity.enumareted.MaritalStatus;
 import com.mitrais.rms.entity.enumareted.Nationality;
-import com.mitrais.rms.repository.DivisionRepository;
 import com.mitrais.rms.repository.EmployeeRepository;
-import com.mitrais.rms.repository.GradeRepository;
 import com.mitrais.rms.repository.LocationRepositroy;
-import com.mitrais.rms.repository.SubDivisionRepository;
 
 /**
  * 
@@ -39,25 +33,10 @@ public class SpringbootRmsApplication {
 	
 	@Autowired
 	private EmployeeRepository empRepo;
-	
-	@Autowired
-	private GradeRepository gradeRepo;
-	
-	@Autowired
-	private DivisionRepository divRepo;
-	
-	@Autowired
-	private SubDivisionRepository subDivRepo;
 
 	@Bean
 	public CommandLineRunner printAll(ApplicationContext ctx){
 		return args-> {
-			Grade grade = new Grade("SE-JP");
-			gradeRepo.save(grade);
-			Division div = new Division("SE");
-			divRepo.save(div);
-			SubDivision subDiv = new SubDivision(div,"SE");
-			subDivRepo.save(subDiv);
 			Location l = new Location();
 			l.setCity("Jakarta");
 			locRepo.save(l);
@@ -70,12 +49,13 @@ public class SpringbootRmsApplication {
 				e.setEmail("Mistiawanagus@gmail.com"+i);
 				e.setHiredDate(new Date());
 				e.setLocation(l);
-				e.setMaritalStatus(MaritalStatus.SINGLE);
-				e.setGrade(grade);
+				e.setMaritalStatus(MaritalStatus.Single);
+				e.setGrade("SE-JP");
 				e.setNationality(Nationality.INDONESIAN);
 				e.setPhone("081368713112");
 				e.setImageUrl("image");
-				e.setSubDivision(subDiv);
+				e.setSubDivision("Software Engineer");
+				e.setDivision("Development");
 				e.setSuspendDate(new Date());
 				e.setStatus("Contract");
 				empRepo.save(e);

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -68,16 +67,16 @@ public class EmployeeController {
 	 * @param name
 	 * @return employee 
 	 */
-	@PostMapping("/employees/findbylastname")
-	@ResponseBody
-	public List<Employee> findByName(@RequestParam String name){
-		List<Employee> emp = empRepo.findByLastName(name);
-		if(emp.size() > 0){
-			return emp;
-		}else{
-			throw new Exception();
-		}
-	}
+//	@PostMapping("/employees/findbylastname")
+//	@ResponseBody
+//	public List<Employee> findByName(@RequestParam String name){
+//		List<Employee> emp = empRepo.findByLastName(name);
+//		if(emp.size() > 0){
+//			return emp;
+//		}else{
+//			throw new Exception();
+//		}
+//	}
 	
 	/**
 	 * get employee by id

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { FormEmployeeComponent } from './employee/form-employee/form-employee.component';
 import { EmployeeService } from "app/service/employee.service";
 import { SharedService } from "app/service/share.service";
+import { routing } from "app/app.routing";
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { SharedService } from "app/service/share.service";
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
     MdButtonModule,
@@ -41,7 +43,8 @@ import { SharedService } from "app/service/share.service";
     MdSelectModule,
     MdDialogModule,
     MdlModule,
-    Md2Module.forRoot()
+    Md2Module.forRoot(),
+    routing
   ],
   providers: [EmployeeService,SharedService],
   bootstrap: [AppComponent]

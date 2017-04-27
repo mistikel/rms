@@ -1,5 +1,3 @@
-import { SubDivision } from "./subdivision.model";
-import { Grade } from "./grade.model";
 import { Location } from "./location.model";
 export class Employee {
     Id: number;
@@ -10,11 +8,11 @@ export class Employee {
     nationality: string;
     maritalStatus: string;
     phone: string;
-    subDivision: SubDivision;
+    subDivision: string;
     status: string;
     suspendDate: string;
     hiredDate: string;
-    grade: Grade;
+    grade: string;
     email: string;
     location: Location;
     photo: string;

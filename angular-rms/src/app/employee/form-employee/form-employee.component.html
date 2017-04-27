@@ -1,34 +1,46 @@
-<div class="form-body">
+<div *ngIf="isShow" class="form-body">
+    <form  [formGroup]="form" (ngSubmit)="save(form.value)">
     <div class=left-form>
-        <mdl-textfield type="text" label="First Name" floating-label></mdl-textfield>
-        <mdl-textfield type="text" label="Last Name" floating-label></mdl-textfield>
-        <md-select ></md-select>
-        <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Date Of Birth" style="width: 300px"
-           ></md2-datepicker>
-        <mdl-textfield type="text" label="Nationality" floating-label></mdl-textfield>
-        <mdl-textfield type="text" label="Marital Status" floating-label></mdl-textfield>
-        <mdl-textfield type="text" label="Phone"  floating-label></mdl-textfield>
-        <mdl-textfield type="text" label="Email" floating-label></mdl-textfield>
+         <input type="hidden" name="empId" id="empId" formControlName="empId">
+        <mdl-textfield type="text" label="First Name" floating-label formControlName="firstName"></mdl-textfield>
+        <mdl-textfield type="text" label="Last Name" floating-label formControlName="lastName"></mdl-textfield>
+        <md-select name="gender" id="gender" placeholder="Gender" formControlName="gender">
+            <md-option *ngFor="let g of genderArr" [value]="g">{{ g }}</md-option>
+        </md-select>
+        <md2-datepicker class="date-picker" openOnFocus="true" type="date" placeholder="Date Of Birth" style="width: 300px"
+           formControlName="dob"></md2-datepicker>
+        <mdl-textfield type="text" label="Nationality"  floating-label formControlName="nationality"></mdl-textfield>
+        <md-select type="text" label="Marital Status" floating-label formControlName="maritalStatus">
+             <md-option *ngFor="let m of maritalArr" [value]="m">{{ m }}</md-option>
+        </md-select>
+        <mdl-textfield type="text" label="Phone" floating-label formControlName="phone"></mdl-textfield>
+        <mdl-textfield type="text" label="Email" floating-label formControlName="email"></mdl-textfield>        
     </div>
     <div class=right-form>
-        <mdl-textfield type="text" label="Sub Division" floating-label></mdl-textfield>
-        <mdl-textfield type="text" label="Status" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="Sub Division"  floating-label formControlName="subDivision"></mdl-textfield>
+        <mdl-textfield type="text" label="Status" floating-label formControlName="status"></mdl-textfield>
         <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Suspend Date" style="width: 300px"
-            ></md2-datepicker>
-        <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Hired Date" style="width: 300px"></md2-datepicker>
-        <md-select></md-select>
-        <md-select></md-select>
-        <mdl-textfield type="text" label="Location"  floating-label></mdl-textfield>
+            formControlName="suspendDate"></md2-datepicker>
+        <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Hired Date" style="width: 300px" formControlName="hiredDate"></md2-datepicker>
+        <mdl-textfield type="hidden"></mdl-textfield>
+        <md-select name="grade" id="grade" placeholder="Grade" formControlName="grade">
+            <md-option *ngFor="let r of gradeArr" [value]="r">{{ r }}</md-option>
+        </md-select>
+        <mdl-textfield type="hidden"></mdl-textfield>
+        <md-select fname="division" id="division" placeholder="Division" formControlName="division">
+            <md-option *ngFor="let d of divisionArr" [value]="d">{{ d }}</md-option>
+        </md-select>
     </div>
     <div class="form-img">
-        <img class="img" >
+        <img class="img" [src]="empPhoto" >
         <button class="upload-icon" md-icon-button><md-icon>camera</md-icon></button>
     </div>
     <input #fileInput type="file" hidden="hidden"/>
     <div class="form-btn">
         <div class="btn">
-            <button md-raised-button >CANCEL</button>
-            <button md-raised-button color="accent">SAVE</button>
+            <button md-raised-button type="submit" [disabled]="!form.valid" color="primary" >CANCEL</button>
+            <button md-raised-button color="accent" type="button" (click)="cancel()">SAVE</button>
         </div>
     </div>
+    </form>
 </div>

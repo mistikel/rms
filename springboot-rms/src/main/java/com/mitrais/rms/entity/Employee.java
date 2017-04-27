@@ -7,8 +7,9 @@ import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Email;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mitrais.rms.entity.enumareted.Gender;
 import com.mitrais.rms.entity.enumareted.MaritalStatus;
 import com.mitrais.rms.entity.enumareted.Nationality;
@@ -19,6 +20,7 @@ public class Employee {
 	@Column(name="emp_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long empId;
+
 	
 	@Column(name="first_name", nullable = false)
 	private String firstName;
@@ -31,6 +33,7 @@ public class Employee {
 	private Gender gender;
 	
 	@Column(name="dob", nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date dob;
 	
 	@Enumerated(EnumType.STRING)
@@ -44,24 +47,33 @@ public class Employee {
 	@Column(name="phone", nullable=false)
 	private String phone;
 	
-	@ManyToOne
-	@JoinColumn(name="sub_division")
-	@JsonManagedReference
-	private SubDivision subDivision;
+	@Column(name="sub_division",nullable=false)
+	private String subDivision;
 	
+	@Column(name="division",nullable=false)
+	private String division;
+	
+	public String getDivision() {
+		return division;
+	}
+
+	public void setDivision(String division) {
+		this.division = division;
+	}
+
 	@Column(name="status", nullable=false)
 	private String status;
 	
 	@Column(name="suspend_date")
+	@Temporal(TemporalType.DATE)
 	private Date suspendDate;
 	
 	@Column(name="hired_date", nullable=false)
+	@Temporal(TemporalType.DATE)
 	private Date hiredDate;
 	
-	@ManyToOne
-	@JoinColumn(name="grade")
-	@JsonManagedReference
-	private Grade grade;
+	@Column(name="grade",nullable=false)
+	private String grade;
 		
 	@Email
 	@Column(name="email", unique = true, nullable=false)
@@ -70,7 +82,6 @@ public class Employee {
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name="location", referencedColumnName="loc_id")
-	@JsonManagedReference
 	private Location location;
 	
 	@Column(name="image_url", nullable=false)
@@ -81,8 +92,8 @@ public class Employee {
 	
 	
 	public Employee(String firstName, String lastName, Gender gender, Date dob, Nationality nationality,
-			MaritalStatus maritalStatus, String phone, SubDivision subDivision, String status, Date suspendDate, Date hiredDate,
-			Grade grade, String email, Location location, String imageUrl) {
+			MaritalStatus maritalStatus, String phone, String subDivision, String division, String status, Date suspendDate, Date hiredDate,
+			String grade, String email, Location location, String imageUrl) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
@@ -91,6 +102,7 @@ public class Employee {
 		this.maritalStatus = maritalStatus;
 		this.phone = phone;
 		this.subDivision = subDivision;
+		this.division = division;
 		this.status = status;
 		this.suspendDate = suspendDate;
 		this.hiredDate = hiredDate;
@@ -117,10 +129,10 @@ public class Employee {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public SubDivision getSubDivision() {
+	public String getSubDivision() {
 		return subDivision;
 	}
-	public void setSubDivision(SubDivision subDivision) {
+	public void setSubDivision(String subDivision) {
 		this.subDivision = subDivision;
 	}
 	public String getStatus() {
@@ -141,10 +153,10 @@ public class Employee {
 	public void setHiredDate(Date hiredDate) {
 		this.hiredDate = hiredDate;
 	}
-	public Grade getGrade() {
+	public String getGrade() {
 		return grade;
 	}
-	public void setGrade(Grade grade) {
+	public void setGrade(String grade) {
 		this.grade = grade;
 	}
 	public String getEmail() {
