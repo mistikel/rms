@@ -2,7 +2,6 @@ package com.mitrais.rms.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +20,7 @@ public class Division {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@OneToMany(targetEntity=SubDivision.class,mappedBy="division",cascade=CascadeType.ALL)
+	@OneToMany(targetEntity=SubDivision.class,mappedBy="division")
 	@JsonBackReference
 	private List<SubDivision> subDivision;
 	

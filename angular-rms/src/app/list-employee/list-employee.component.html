@@ -1,6 +1,0 @@
-<search-bar [selectedEmployeeId]="selectedEmployee?selectedEmployee.Id:''" [employeeCount]="employees.length" (searchEmp)="onEmpSearch($event)" (deleteClick)="onEmpDelete()" (sortClick)="onEmpSort($event)"></search-bar>
-<div class="scroll-bar-div">
-    <employee [employees]="employees" [sortFlag]="sortFlag" [selectedEmployee]="selectedEmployee" (clicked)="onEmployeeClicked($event)">
-    </employee>
-</div>
-<button md-mini-fab class="floating-button" (click)="setNew()"><md-icon>add</md-icon></button>

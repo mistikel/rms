@@ -44,6 +44,7 @@
     left: 375px;
     right: 0px;
     bottom: 0px;
+    overflow: hidden;
 }
 
 .left-container {
@@ -56,3 +57,4 @@
     border: solid rgba(0, 0, 0, 0.5);
     border-width: 0px 1px 0px 0px;
 }
+

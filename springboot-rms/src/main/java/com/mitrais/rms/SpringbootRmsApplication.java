@@ -17,8 +17,11 @@ import com.mitrais.rms.entity.SubDivision;
 import com.mitrais.rms.entity.enumareted.Gender;
 import com.mitrais.rms.entity.enumareted.MaritalStatus;
 import com.mitrais.rms.entity.enumareted.Nationality;
+import com.mitrais.rms.repository.DivisionRepository;
 import com.mitrais.rms.repository.EmployeeRepository;
+import com.mitrais.rms.repository.GradeRepository;
 import com.mitrais.rms.repository.LocationRepositroy;
+import com.mitrais.rms.repository.SubDivisionRepository;
 
 /**
  * 
@@ -36,34 +39,48 @@ public class SpringbootRmsApplication {
 	
 	@Autowired
 	private EmployeeRepository empRepo;
+	
+	@Autowired
+	private GradeRepository gradeRepo;
+	
+	@Autowired
+	private DivisionRepository divRepo;
+	
+	@Autowired
+	private SubDivisionRepository subDivRepo;
 
 	@Bean
 	public CommandLineRunner printAll(ApplicationContext ctx){
 		return args-> {
 			Grade grade = new Grade("SE-JP");
+			gradeRepo.save(grade);
 			Division div = new Division("SE");
+			divRepo.save(div);
 			SubDivision subDiv = new SubDivision(div,"SE");
+			subDivRepo.save(subDiv);
 			Location l = new Location();
 			l.setCity("Jakarta");
 			locRepo.save(l);
-			Employee e = new Employee();
-			e.setDob(new Date());
-			e.setFirstName("Agus");
-			e.setLastName("Mistiawan");
-			e.setGender(Gender.Male);
-			e.setEmail("Mistiawanagus@gmail.com");
-			e.setHiredDate(new Date());
-			e.setLocation(l);
-			e.setMaritalStatus(MaritalStatus.SINGLE);
-			e.setGrade(grade);
-			e.setNationality(Nationality.INDONESIAN);
-			e.setPhone("081368713112");
-			e.setImageUrl("image");
-			e.setSubDivision(subDiv);
-			e.setSuspendDate(new Date());
-			e.setStatus("Contract");
-			//set everything
-			empRepo.save(e);
+			for(int i=0; i<13; i++){
+				Employee e = new Employee();
+				e.setDob(new Date());
+				e.setFirstName("Agus"+i);
+				e.setLastName("Mistiawan"+i);
+				e.setGender(Gender.Male);
+				e.setEmail("Mistiawanagus@gmail.com"+i);
+				e.setHiredDate(new Date());
+				e.setLocation(l);
+				e.setMaritalStatus(MaritalStatus.SINGLE);
+				e.setGrade(grade);
+				e.setNationality(Nationality.INDONESIAN);
+				e.setPhone("081368713112");
+				e.setImageUrl("image");
+				e.setSubDivision(subDiv);
+				e.setSuspendDate(new Date());
+				e.setStatus("Contract");
+				empRepo.save(e);
+			}
+			
 		};
 	}
 }

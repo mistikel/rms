@@ -1,21 +1,17 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Employee } from "app/model/employee.model";
 
 @Component({
-	selector: 'employee',
-	templateUrl: 'employee.component.html',
-	styleUrls: ['employee.component.css']
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css']
 })
-
 export class EmployeeComponent implements OnInit {
-	@Input() employees;
-	@Input() sortFlag;
-	@Input() selectedEmployee;
-	@Output() clicked = new EventEmitter();
 
-	ngOnInit() { }
+  @Input() employee : Employee;
+  constructor() { }
 
-	onClick(emp) {
-		this.selectedEmployee = emp;
-		this.clicked.emit(this.selectedEmployee);
-	}
+  ngOnInit() {
+  }
+
 }

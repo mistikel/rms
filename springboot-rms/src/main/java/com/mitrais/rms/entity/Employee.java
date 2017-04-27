@@ -44,7 +44,7 @@ public class Employee {
 	@Column(name="phone", nullable=false)
 	private String phone;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="sub_division")
 	@JsonManagedReference
 	private SubDivision subDivision;
@@ -58,7 +58,7 @@ public class Employee {
 	@Column(name="hired_date", nullable=false)
 	private Date hiredDate;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="grade")
 	@JsonManagedReference
 	private Grade grade;

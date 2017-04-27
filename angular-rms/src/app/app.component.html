@@ -15,11 +15,11 @@
 
 <div>
   <div class="left-container">
-    <list-employee (employeeClicked)="onEmployeeInListClicked($event)" [selectedEmployee]="selectedEmployee" [initialEmpSave]="initialEmployee"></list-employee>
+    <app-list-employee></app-list-employee>
   </div>
 
   <div class="right-container">
-    <app-detail-employee></app-detail-employee>
-    <app-form-data (cancelClicked)="cancelFormClicked($event)" (saveClicked)="saveFormClicked($event)" [selectedEmpSelect]="selectedEmployee?selectedEmployee.Id:''"></app-form-data>
+      <app-tab-employee></app-tab-employee>
+      <app-form-employee></app-form-employee>
   </div>
 </div>

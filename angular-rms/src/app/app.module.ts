@@ -8,35 +8,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule, MdSelectModule, MdDialogModule } from '@angular/material';
 import { Md2Module } from 'md2';
 import { MdlModule } from '@angular-mdl/core';
-
-import { ListEmployeeComponent } from './list-employee/list-employee.component';
-import { SearchBarComponent, FilterDialogComponent } from './search-bar/search-bar.component';
-import { FormDataComponent } from './form-data/form-data.component';
+import { ListEmployeeComponent } from './employee/list-employee/list-employee.component';
+import { TabEmployeeComponent } from './employee/tab-employee/tab-employee.component';
+import { SearchComponent } from './search/search.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { DeatilEmployeeComponent } from './detail-employee/detail-employee.component';
-import { EmployeeService } from './shared/services/employee-list.service';
-import { SelectedDirective } from './shared/directives/selected.directive';
-import { lookupListToken, lookupList } from './shared/providers';
-import { MaterialSelect } from './shared/directives/material-select.component';
-import { OrderByAscDesc } from './shared/pipes/order-by-asc-desc.pipe';
-import { SafeUrl } from './shared/pipes/safe-url.pipe';
+import { FormEmployeeComponent } from './employee/form-employee/form-employee.component';
+import { EmployeeService } from "app/service/employee.service";
+import { SelectedDirective } from "app/directive-helper/selected.directive";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ListEmployeeComponent,
-    SearchBarComponent,
-    FormDataComponent,
+    TabEmployeeComponent,
+    SearchComponent,
     EmployeeComponent,
-    DeatilEmployeeComponent,
-    SelectedDirective,
-    MaterialSelect,
-    FilterDialogComponent,
-    OrderByAscDesc,
-    SafeUrl
+    FormEmployeeComponent,
+    SelectedDirective
   ],
   entryComponents: [
-    FilterDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,10 +44,7 @@ import { SafeUrl } from './shared/pipes/safe-url.pipe';
     MdlModule,
     Md2Module.forRoot()
   ],
-  providers: [
-    EmployeeService,
-    { provide: lookupListToken, useValue: lookupList }
-  ],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

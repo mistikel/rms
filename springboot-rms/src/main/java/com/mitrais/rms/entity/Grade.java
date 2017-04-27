@@ -1,12 +1,13 @@
 package com.mitrais.rms.entity;
 
-import javax.persistence.CascadeType;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -22,9 +23,9 @@ public class Grade {
 	@Column(name="desc_grade", nullable=false)
 	private String descGrade;
 	
-	@OneToOne(mappedBy="grade",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="grade",targetEntity=Employee.class)
 	@JsonBackReference
-	private Employee employe;
+	private List<Employee> employe;
 	
 	public Grade(String descGrade) {
 		this.descGrade = descGrade;
@@ -32,11 +33,11 @@ public class Grade {
 	
 	public Grade() {}
 
-	public Employee getEmploye() {
+	public List<Employee> getEmploye() {
 		return employe;
 	}
 
-	public void setEmploye(Employee employe) {
+	public void setEmploye(List<Employee> employe) {
 		this.employe = employe;
 	}
 
