@@ -36,6 +36,7 @@ public class EmployeeControllerTest {
 		this.empRepo.deleteAll();
 		Location loc = new Location(1,"Jakarta");
 		Employee emp = new Employee();
+		emp.setEmpId(1L);
 		emp.setDob(new Date());
 		emp.setEmail("Mistiawanagsu@gmail.com");
 		emp.setFirstName("Agus");
@@ -49,13 +50,16 @@ public class EmployeeControllerTest {
 		emp.setPhone("081369713112");
 		emp.setStatus("Single");
 		emp.setSubDivision("SE");
+		emp.setDivision("adasd");
 		emp.setSuspendDate(new Date());
 		emp.setLocation(loc);
 		
 		this.empRepo.save(emp);
+		System.out.println(this.empRepo.findOne(1L));
 	}
 	@Test
 	public void getEmployee() throws Exception{
+
 		this.mockEmployee.perform(get("/employees"))
 		.andExpect(status().isOk());
 	}

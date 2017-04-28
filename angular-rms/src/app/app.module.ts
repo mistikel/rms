@@ -16,7 +16,7 @@ import { FormEmployeeComponent } from './employee/form-employee/form-employee.co
 import { EmployeeService } from "app/service/employee.service";
 import { SharedService } from "app/service/shared.service";
 import { routing } from "app/app.routing";
-import { PopUpComponent } from './pop-up/pop-up.component';
+import { PopUpComponent, FilterDialogComponent } from './pop-up/pop-up.component';
 
 
 @NgModule({
@@ -28,9 +28,11 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     EmployeeComponent,
     FormEmployeeComponent,
     PopUpComponent,
+    FilterDialogComponent
   ],
   entryComponents: [
-    PopUpComponent
+    PopUpComponent,
+    FilterDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MdDialog, MdDialogRef } from '@angular/material';
-import { PopUpComponent } from "app/pop-up/pop-up.component";
+import { PopUpComponent, FilterDialogComponent } from "app/pop-up/pop-up.component";
 import { EmployeeService } from "app/service/employee.service";
 import { Employee } from "app/model/employee.model";
 import { SharedService } from "app/service/shared.service";
@@ -38,9 +38,15 @@ export class SearchComponent implements OnInit {
     }else if(this.sortDir == "desc"){
       this.sortDir = "asc";
     }
-    console.log(this.sortDir);
     this.empSort.emit(this.sortDir);
 
+  }
+
+  filter(){
+    let popUp = this.dialog.open(FilterDialogComponent,{
+        height: '200px',
+        width: '360px',
+    })
   }
 
   delete(){
