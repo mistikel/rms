@@ -29,20 +29,47 @@ export class EmployeeService{
         }
       });
   }
-
-  postOrUpdate(employee : Employee, empId): Observable<Employee>{
+  post(employee: Employee){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    if(empId != "add" || empId != null){
-      console.log(JSON.stringify(employee));
-      let url = "/api/employees" + employee.empId;
-      return this.http.put(url,JSON.stringify(employee),{headers:headers})
-              .map(response => response.json());
-    }
-    else{
-      let url = "/api/employees";
+    let url = "/api/employees";
       return this.http.post(url, JSON.stringify(employee), {headers:headers})
               .map(response => response.json());
-    }
+  }
+
+  put(employee : Employee, empId): Observable<Employee>{
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');      
+    let url = "/api/employees/" + employee.empId;      
+    return this.http.put(url,JSON.stringify(employee),{headers:headers})
+              .map(response => response.json());
+
+  }
+  delete(empId){
+     let url = "/api/employees/" + empId;
+    return this.http.delete(url)
+      .map(response => {
+        if (response != null) {
+          return;
+        } else {
+          return null
+        }
+      });
+  }
+
+  getSortEmployee(sort): Observable<Employee[]>{
+    let url = "/api/employees/sort";
+    let params = new URLSearchParams();
+    params.append('sort', sort);
+    return this.http.get(url, {search : params})
+    .map(response=>response.json());
+  }
+
+  getByName(name): Observable<Employee[]>{
+    let url = "/api/employees/search";
+    let params = new URLSearchParams();
+    params.append('name', name);
+    return this.http.get(url,{search : params})
+      .map(response => response.json());
   }
 }

@@ -1,5 +1,5 @@
-<app-search></app-search>
+<app-search [selectedEmployee]="selectedEmployee" (empSort)="sortEmployee($event)" (searchParam)="search($event)" [length]="employees==null ? 0 : employees.length"></app-search>
 <div class="scroll-bar-div">
     <app-employee *ngFor="let emp of employees" [employee]="emp" [selectedEmployee]="selectedEmployee" (selected)="onEmployeeSelected($event)"></app-employee>
 </div>
-<button md-mini-fab class="floating-button"><md-icon>add</md-icon></button>
+<button md-mini-fab class="floating-button" (click)="addEmployee()"><md-icon>add</md-icon></button>

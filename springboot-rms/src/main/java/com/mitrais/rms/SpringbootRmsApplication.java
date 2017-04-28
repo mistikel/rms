@@ -50,12 +50,12 @@ public class SpringbootRmsApplication {
 				e.setHiredDate(new Date());
 				e.setLocation(l);
 				e.setMaritalStatus(MaritalStatus.Single);
-				e.setGrade("SE-JP");
+				e.setGrade("SE - JP");
 				e.setNationality(Nationality.INDONESIAN);
 				e.setPhone("081368713112");
 				e.setImageUrl("image");
 				e.setSubDivision("Software Engineer");
-				e.setDivision("Development");
+				e.setDivision("CDC - Red");
 				e.setSuspendDate(new Date());
 				e.setStatus("Contract");
 				empRepo.save(e);

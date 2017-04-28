@@ -9,7 +9,7 @@
     color: white;
 }
 :host .right-search {
-    float: right;
+    float: left;
     padding: 5px 0px 0px 0px;
 }
 
@@ -35,4 +35,12 @@
 
 .delete-visible {
     width: 140px;
+}
+
+:host .emp-selected{
+    width: 165px;
+}
+
+:host .btn{
+    padding: 0;
 }

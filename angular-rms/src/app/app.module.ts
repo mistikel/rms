@@ -14,8 +14,9 @@ import { SearchComponent } from './search/search.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { FormEmployeeComponent } from './employee/form-employee/form-employee.component';
 import { EmployeeService } from "app/service/employee.service";
-import { SharedService } from "app/service/share.service";
+import { SharedService } from "app/service/shared.service";
 import { routing } from "app/app.routing";
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 
 @NgModule({
@@ -26,8 +27,10 @@ import { routing } from "app/app.routing";
     SearchComponent,
     EmployeeComponent,
     FormEmployeeComponent,
+    PopUpComponent,
   ],
   entryComponents: [
+    PopUpComponent
   ],
   imports: [
     BrowserModule,

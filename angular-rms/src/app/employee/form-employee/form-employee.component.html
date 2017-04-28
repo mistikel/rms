@@ -1,5 +1,5 @@
 <div *ngIf="isShow" class="form-body">
-    <form  [formGroup]="form" (ngSubmit)="save(form.value)">
+    <form  [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
     <div class=left-form>
          <input type="hidden" name="empId" id="empId" formControlName="empId">
         <mdl-textfield type="text" label="First Name" floating-label formControlName="firstName"></mdl-textfield>

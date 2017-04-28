@@ -4,17 +4,18 @@
     </div>
     <div class="left-search-input">
         <md-input-container>
-            <input mdInput class="input-search" placeholder="Search">
+            <input [class.emp-selected]="selectedEmployee" mdInput class="input-search" placeholder="Search" (keyup)="onSearch($event)">
         </md-input-container>
     </div>
-    <div class="search-chip">
-        <md-chip-list>
-            <md-chip></md-chip>
-        </md-chip-list>
-    </div>
+    
     <div class="right-search">
-        <button md-icon-button><md-icon>delete</md-icon></button>
-        <button md-icon-button><md-icon >sort</md-icon></button>
-        <button md-icon-button><md-icon>filter_list</md-icon></button>
+        <button md-icon-button class="btn" *ngIf="selectedEmployee" (click)="delete()"><md-icon>delete</md-icon></button>
+        <button md-icon-button class="btn" (click)="sort()"><md-icon >sort_by_alpha</md-icon></button>
+        <button md-icon-button class="btn" ><md-icon>filter_list</md-icon></button>
+        <div class="search-chip">
+            <md-chip-list>
+                <md-chip color="primary" >{{ length }}</md-chip>
+            </md-chip-list>
+    </div>
     </div>
 </div>

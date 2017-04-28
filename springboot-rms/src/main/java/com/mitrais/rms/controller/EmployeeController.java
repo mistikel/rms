@@ -3,12 +3,14 @@ package com.mitrais.rms.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -67,16 +69,32 @@ public class EmployeeController {
 	 * @param name
 	 * @return employee 
 	 */
-//	@PostMapping("/employees/findbylastname")
-//	@ResponseBody
-//	public List<Employee> findByName(@RequestParam String name){
-//		List<Employee> emp = empRepo.findByLastName(name);
-//		if(emp.size() > 0){
-//			return emp;
-//		}else{
-//			throw new Exception();
-//		}
-//	}
+	@GetMapping("/employees/sort")
+	@ResponseBody
+	public Iterable<Employee> sortByLastName(@RequestParam String sort){
+		Sort.Order sorted;
+	    if(sort.equals("asc")){
+	    	sorted = new Sort.Order(Sort.Direction.ASC, "lastName").ignoreCase();
+	    }else{
+	    	sorted = new Sort.Order(Sort.Direction.DESC, "lastName").ignoreCase();
+	    }
+		try {
+			return empRepo.findAll(new Sort(sorted));
+		} catch (Exception e) {
+			throw new Exception();
+		}
+	}
+	
+	@GetMapping("/employees/search")
+	@ResponseBody
+	public Iterable<Employee> findByName(@RequestParam String name){
+		Sort.Order sorted = new Sort.Order(Sort.Direction.ASC, "lastName").ignoreCase();
+		try {
+			return empRepo.findByFirstNameContainingOrLastNameContainingAllIgnoreCase(name, name, new Sort(sorted));
+		} catch (Exception e) {
+			throw new Exception();
+		}
+	}
 	
 	/**
 	 * get employee by id
@@ -101,10 +119,11 @@ public class EmployeeController {
 	 */
 	@PutMapping("/employees/{id}")
 	@ResponseBody
-	public void putEmployeById(@PathVariable long id, @RequestBody Employee emp){
+	public Employee putEmployeById(@PathVariable long id, @RequestBody Employee emp){
 		try {
 			emp.setEmpId(id);
 			empRepo.save(emp);
+			return emp;
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			throw new Exception();

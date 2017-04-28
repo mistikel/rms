@@ -9,6 +9,7 @@ export class Employee {
     maritalStatus: string;
     phone: string;
     subDivision: string;
+    division : string;
     status: string;
     suspendDate: string;
     hiredDate: string;
