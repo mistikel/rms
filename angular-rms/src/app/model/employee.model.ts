@@ -1,6 +1,6 @@
 import { Location } from "./location.model";
 export class Employee {
-    Id: number;
+    empId: number;
     firstName: string;
     lastName: string;
     gender: string;
@@ -15,6 +15,6 @@ export class Employee {
     grade: string;
     email: string;
     location: Location;
-    photo: string;
+    imageUrl: string;
     Employee() {}
 }

@@ -38,8 +38,8 @@
     <input #fileInput type="file" hidden="hidden"/>
     <div class="form-btn">
         <div class="btn">
-            <button md-raised-button type="submit" [disabled]="!form.valid" color="primary" >CANCEL</button>
-            <button md-raised-button color="accent" type="button" (click)="cancel()">SAVE</button>
+            <button md-raised-button type="button" (click)="cancel()" >CANCEL</button>
+            <button md-raised-button color="accent" type="submit" [disabled]="!form.valid">SAVE</button>
         </div>
     </div>
     </form>

@@ -3,9 +3,6 @@ import 'rxjs/add/operator/toPromise';
 
 import { Employee } from '../model/employee.model';
 import { Location } from "../model/location.model";
-import { Grade } from "../model/grade.model";
-import { Division } from "../model/division.model";
-import { SubDivision } from "../model/subdivision.model"
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/toPromise';
@@ -31,5 +28,21 @@ export class EmployeeService{
           return null
         }
       });
+  }
+
+  postOrUpdate(employee : Employee, empId): Observable<Employee>{
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    if(empId != "add" || empId != null){
+      console.log(JSON.stringify(employee));
+      let url = "/api/employees" + employee.empId;
+      return this.http.put(url,JSON.stringify(employee),{headers:headers})
+              .map(response => response.json());
+    }
+    else{
+      let url = "/api/employees";
+      return this.http.post(url, JSON.stringify(employee), {headers:headers})
+              .map(response => response.json());
+    }
   }
 }
