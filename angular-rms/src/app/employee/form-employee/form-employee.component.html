@@ -29,7 +29,7 @@
         <md-select fname="division" id="division" placeholder="Division" formControlName="division">
             <md-option *ngFor="let d of lookupLists.divisions" [value]="d.value">{{ d.viewValue }}</md-option>
         </md-select>
-        <mdl-textfield type="text" label="Email" floating-label formControlName="email"></mdl-textfield>    
+        <mdl-textfield type="email" required label="Email" floating-label formControlName="email"></mdl-textfield>    
     </div>
     <div class="form-img">
         <md-icon (click)="fileInput.click()">camera</md-icon>

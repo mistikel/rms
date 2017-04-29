@@ -1,4 +1,4 @@
-<div class="emp-card" (click)="onSelected(employee)" [class.emp-card-selected]="employee == selectedEmployee" >
+<div class="emp-card" (click)="onSelected(employee)" [ngClass]="{ 'emp-card-selected' : employee == selectedEmployee }" >
     <img class="img-card" [src]="employee.imageUrl">
     <div class="card-left">
         <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>

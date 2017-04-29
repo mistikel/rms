@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import { EmployeeService } from "app/service/employee.service";
 import { Employee } from "app/model/employee.model";
 import { Location } from "app/model/location.model"
@@ -88,10 +88,11 @@ export class FormEmployeeComponent implements OnInit {
 
   cancel(){
     this.isShow = false;
-    this.router.navigate(['/employees/', this.empID]);
+    this.router.navigate(['/employees/']);
   }
 
   onUpload(img){
+    this.imageUrl = img.target.files;
     var image = new FileReader();
     image.onload = (img: any)=>{
       this.imageUrl = img.target.result;
@@ -107,21 +108,21 @@ export class FormEmployeeComponent implements OnInit {
   setValues(){
     this.form = this.formBuilder.group({
       empId: this.formBuilder.control(this._employee.empId),
-      firstName: this.formBuilder.control(this._employee.firstName),
-      lastName: this.formBuilder.control(this._employee.lastName),
-      gender: this.formBuilder.control(this._employee.gender),
-      dob: this.formBuilder.control(this._employee.dob),
-      nationality: this.formBuilder.control(this._employee.nationality),
-      maritalStatus: this.formBuilder.control(this._employee.maritalStatus),
-      phone: this.formBuilder.control(this._employee.phone),
+      firstName: this.formBuilder.control(this._employee.firstName, Validators.compose([Validators.required])),
+      lastName: this.formBuilder.control(this._employee.lastName, Validators.compose([Validators.required])),
+      gender: this.formBuilder.control(this._employee.gender,Validators.compose([Validators.required])),
+      dob: this.formBuilder.control(this._employee.dob,Validators.compose([Validators.required])),
+      nationality: this.formBuilder.control(this._employee.nationality,Validators.compose([Validators.required])),
+      maritalStatus: this.formBuilder.control(this._employee.maritalStatus,Validators.compose([Validators.required])),
+      phone: this.formBuilder.control(this._employee.phone,Validators.compose([Validators.required])),
       location: this.formBuilder.control(this._employee.location.id),
-      subDivision: this.formBuilder.control(this._employee.subDivision),
-      status: this.formBuilder.control(this._employee.status),
+      subDivision: this.formBuilder.control(this._employee.subDivision,Validators.compose([Validators.required])),
+      status: this.formBuilder.control(this._employee.status,Validators.compose([Validators.required])),
       suspendDate: this.formBuilder.control(this._employee.suspendDate),
-      hiredDate: this.formBuilder.control(this._employee.hiredDate),
-      grade: this.formBuilder.control(this._employee.grade),
-      division: this.formBuilder.control(this._employee.division),
-      email: this.formBuilder.control(this._employee.email)
+      hiredDate: this.formBuilder.control(this._employee.hiredDate,Validators.compose([Validators.required])),
+      grade: this.formBuilder.control(this._employee.grade,Validators.compose([Validators.required])),
+      division: this.formBuilder.control(this._employee.division,Validators.compose([Validators.required])),
+      email: this.formBuilder.control(this._employee.email,Validators.compose([Validators.required]))
     });
   }
 
@@ -136,7 +137,7 @@ export class FormEmployeeComponent implements OnInit {
       nationality: this.formBuilder.control(''),
       maritalStatus: this.formBuilder.control(''),
       phone: this.formBuilder.control(''),
-      location: this.formBuilder.control("1"),
+      location: this.formBuilder.control(""),
       subDivision: this.formBuilder.control(''),
       status: this.formBuilder.control(''),
       suspendDate: this.formBuilder.control(''),

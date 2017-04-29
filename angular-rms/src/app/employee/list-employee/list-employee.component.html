@@ -1,7 +1,7 @@
 <app-search [selectedEmployee]="selectedEmployee" (filterParam)="filterEmployee($event)" (empSort)="sortEmployee($event)" (searchParam)="search($event)" [length]="employees==null ? 0 : employees.length"></app-search>
 <div class="scroll-bar-div">
     <div *ngIf="notFound" class="emp-card">
-        <h4 style="color:red;">Employee not found!</h4>
+        <p style="color:black;font-style:italic;">we couldn't find what are you looking for</p>
     </div>
     <app-employee *ngFor="let emp of employees" [employee]="emp" [selectedEmployee]="selectedEmployee" (selected)="onEmployeeSelected($event)"></app-employee>
 </div>
