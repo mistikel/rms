@@ -84,6 +84,7 @@ public class Employee {
 	@JoinColumn(name="location", referencedColumnName="loc_id")
 	private Location location;
 	
+	@Lob
 	@Column(name="image_url")
 	private String imageUrl;
 	

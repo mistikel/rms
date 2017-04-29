@@ -44,3 +44,14 @@
 :host .btn{
     padding: 0;
 }
+/deep/ .md-input .mat-input-wrapper .mat-input-table .mat-input-infix .mat-input-placeholder-wrapper .mat-input-placeholder.mat-empty {
+    color: white;
+}
+
+/deep/ .md-input .mat-input-wrapper .mat-input-table .mat-input-infix .mat-input-placeholder-wrapper .mat-input-placeholder.mat-float {
+    color: white;
+}
+
+/deep/ .md-input .mat-input-wrapper .mat-input-underline {
+    border-color: white;
+}

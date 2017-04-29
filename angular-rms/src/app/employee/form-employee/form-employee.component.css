@@ -16,7 +16,7 @@
 .left-form {
     top: 5px;
     left: 20px;
-    width: 300px;
+    width: 40%;
     float: left;
     margin-left: 20px;
 }
@@ -24,7 +24,7 @@
 .right-form {
     top: 5px;
     left: 340px;
-    width: 300px;
+    width: 40%;
     float: left;
     margin-left: 20px;
 }
@@ -71,10 +71,19 @@ md-select{
     margin-top: 18px;
     margin-bottom: 10px;
 }
+mdl-textfield{
+    width: 100%
+}
+
+md2-datepicker{
+    width: 100% !important;
+}
+
 
 .date-picker {
     margin-bottom: 6px;
 }
+
 
 /deep/ .mdl-textfield .mdl-textfield__input {
     font-size: 14px;    

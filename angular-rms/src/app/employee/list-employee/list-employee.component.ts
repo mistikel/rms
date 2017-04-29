@@ -41,18 +41,18 @@ export class ListEmployeeComponent implements OnInit {
   }
 
   filterEmployee(filter){
-    if(filter.location != "" && filter.gender != ""){
+    if(filter.location.value != undefined && filter.gender.value != undefined){
         this.empService.filterAll(filter.location.value,filter.gender.value)
         .subscribe(employees => {
             this.employees = employees;
         });
-    }else if(filter.location !=null && filter.gender == "" ){
+    }else if(filter.location.value !=undefined && filter.gender.value ==undefined ){
       console.log(filter.location);
       this.empService.filterByLocation(filter.location.value)
         .subscribe(employees => {
             this.employees = employees;
         });
-    }else if(filter.location =="" && filter.gender != null){
+    }else if(filter.location.value ==undefined && filter.gender.value != undefined){
       console.log(filter.location);
       this.empService.filterByGender(filter.gender.value)
         .subscribe(employees => {

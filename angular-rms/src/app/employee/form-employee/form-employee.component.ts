@@ -17,7 +17,7 @@ export class FormEmployeeComponent implements OnInit {
   _location : Location;
   isShow = false;
   empID;
-  private empPhoto = "";
+  private imageUrl = "";
   private locations : Location[];
   private form; 
   constructor(
@@ -55,9 +55,9 @@ export class FormEmployeeComponent implements OnInit {
       }else{
         this.isShow = true;
         if(this._employee.imageUrl==null){
-          this.empPhoto = "src/images/no-image.png";
+          this.imageUrl = "src/images/no-image.png";
         }else{
-          this.empPhoto = this._employee.imageUrl;
+          this.imageUrl = this._employee.imageUrl;
         }
         this._location = response.location;
         this.setValues();
@@ -68,27 +68,35 @@ export class FormEmployeeComponent implements OnInit {
 
   onSubmit(employee:Employee){
     employee.location = this._location;
-    if(this.empPhoto != "src/resources/images/no-image.png" && this.empPhoto != null){
-      employee.imageUrl = this.empPhoto;
+    if(this.imageUrl != "src/images/no-image.png" && this.imageUrl != null){
+      employee.imageUrl = this.imageUrl;
     }
     if(!employee.empId){
         this.empService.post(employee)
           .subscribe(response=>{
         this._employee = response;
+        this.reload();
       });  
     }else{
       this.empService.put(employee,this.empID)
         .subscribe(response=>{
       this._employee = response;
+      this.reload();
     });
   }
-  this.reload();
-    
   }
 
   cancel(){
     this.isShow = false;
     this.router.navigate(['/employees/', this.empID]);
+  }
+
+  onUpload(img){
+    var image = new FileReader();
+    image.onload = (img: any)=>{
+      this.imageUrl = img.target.result;
+    }
+    image.readAsDataURL(img.target.files[0]);
   }
 
   reload(){
@@ -137,7 +145,7 @@ export class FormEmployeeComponent implements OnInit {
       division: this.formBuilder.control(''),
       email: this.formBuilder.control('')
     });
-    this.empPhoto = "src/resources/images/no-image.png";
+    this.imageUrl = "src/images/no-image.png";
   }
 
 }

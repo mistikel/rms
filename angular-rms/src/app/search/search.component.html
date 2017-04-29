@@ -3,8 +3,8 @@
         <button md-icon-button><md-icon>search</md-icon></button>
     </div>
     <div class="left-search-input">
-        <md-input-container>
-            <input [class.emp-selected]="selectedEmployee" mdInput class="input-search" placeholder="Search" (keyup)="onSearch($event)">
+        <md-input-container class="md-input">
+            <input mdInput [class.emp-selected]="selectedEmployee" mdInput class="input-search" placeholder="Search" (keyup)="onSearch($event)">
         </md-input-container>
     </div>
     

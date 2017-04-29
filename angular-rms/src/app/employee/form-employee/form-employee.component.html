@@ -32,8 +32,8 @@
         <mdl-textfield type="text" label="Email" floating-label formControlName="email"></mdl-textfield>    
     </div>
     <div class="form-img">
-        <md-icon>camera</md-icon>
-        <img class="img" [src]="empPhoto" (click)="fileInput.click()">
+        <md-icon (click)="fileInput.click()">camera</md-icon>
+        <img class="img" [src]="imageUrl" (click)="fileInput.click()">
         
     </div>
     <input #fileInput type="file" hidden="hidden" (change)="onUpload($event)" accept="image/*"/>
