@@ -1,10 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MdDialog, MdDialogRef } from '@angular/material';
-import { PopUpComponent, FilterDialogComponent } from "app/pop-up/pop-up.component";
+import { PopUpComponent } from "app/pop-up/pop-up-delete/pop-up.component";
 import { EmployeeService } from "app/service/employee.service";
 import { Employee } from "app/model/employee.model";
 import { SharedService } from "app/service/shared.service";
+import { PopUpFilterComponent } from "app/pop-up/pop-up-filter/pop-up-filter.component";
 
 @Component({
   selector: 'app-search',
@@ -16,6 +17,7 @@ export class SearchComponent implements OnInit {
   @Input() length;
   @Output() empSort = new EventEmitter();
   @Output() searchParam = new EventEmitter();
+  @Output() filterParam = new EventEmitter();
   params = "";
   sortDir = "asc";
   constructor(
@@ -43,10 +45,16 @@ export class SearchComponent implements OnInit {
   }
 
   filter(){
-    let popUp = this.dialog.open(FilterDialogComponent,{
-        height: '200px',
-        width: '360px',
+    let popUp = this.dialog.open(PopUpFilterComponent,{
+         height: '200px',
+         width: '250px',
     })
+
+    popUp.afterClosed().subscribe(result =>{
+      if(result.action == "yes"){
+        this.filterParam.emit(result);
+      }
+    });
   }
 
   delete(){

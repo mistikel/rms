@@ -15,15 +15,3 @@ export class PopUpComponent implements OnInit {
   }
 
 }
-
-@Component({
-  selector: 'filter-dialog',
-	template: "Component work"
-})
-export class FilterDialogComponent implements OnInit {
-
-  constructor(public filterPopUp:MdDialogRef<FilterDialogComponent>){}
-  ngOnInit(): void {
-   
-  }
-}

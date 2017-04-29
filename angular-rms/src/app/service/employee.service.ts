@@ -72,4 +72,29 @@ export class EmployeeService{
     return this.http.get(url,{search : params})
       .map(response => response.json());
   }
+
+  filterAll(location,gender): Observable<Employee[]>{
+    let url = "/api/employees/filterAll";
+    let params = new URLSearchParams();
+    params.append('location', location);
+    params.append('gender', gender);
+    return this.http.get(url,{search : params})
+      .map(response => response.json());
+  }
+
+  filterByLocation(location): Observable<Employee[]>{
+    let url = "/api/employees/filterLocation";
+    let params = new URLSearchParams();
+    params.append('location', location);
+    return this.http.get(url,{search : params})
+      .map(response => response.json());
+  }
+
+  filterByGender(gender): Observable<Employee[]>{
+    let url = "/api/employees/filterGender";
+    let params = new URLSearchParams();
+    params.append('gender', gender);
+    return this.http.get(url,{search : params})
+      .map(response => response.json());
+  }
 }

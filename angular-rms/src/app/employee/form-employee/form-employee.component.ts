@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormBuilder } from "@angular/forms";
 import { EmployeeService } from "app/service/employee.service";
 import { Employee } from "app/model/employee.model";
 import { Location } from "app/model/location.model"
 import { SharedService } from "app/service/shared.service";
+import { lookupListToken } from "app/providers";
 
 @Component({
   selector: 'app-form-employee',
@@ -17,10 +18,6 @@ export class FormEmployeeComponent implements OnInit {
   isShow = false;
   empID;
   private empPhoto = "";
-  genderArr = ["Male", "Female"];
-  gradeArr = ["SE - JP", "SE - PG", "SE - AP", "SE - AN"];
-  divisionArr = ["SWD - TechOne", "CDC - TechOne", "MMS - TechOne", "CDC - Red", "CDC - Services", "MMS - Services", "SWD - Services", "SWD - Blue"];
-  maritalArr = ["Single", "Married"];
   private locations : Location[];
   private form; 
   constructor(
@@ -28,7 +25,8 @@ export class FormEmployeeComponent implements OnInit {
     private activeRoute : ActivatedRoute,
     private formBuilder: FormBuilder,
     private empService : EmployeeService,
-    private reloadService : SharedService
+    private reloadService : SharedService,
+    @Inject(lookupListToken) public lookupLists
   ) { }
 
   ngOnInit() {
@@ -108,7 +106,7 @@ export class FormEmployeeComponent implements OnInit {
       nationality: this.formBuilder.control(this._employee.nationality),
       maritalStatus: this.formBuilder.control(this._employee.maritalStatus),
       phone: this.formBuilder.control(this._employee.phone),
-      location: this.formBuilder.control(this._employee.location.Id),
+      location: this.formBuilder.control(this._employee.location.id),
       subDivision: this.formBuilder.control(this._employee.subDivision),
       status: this.formBuilder.control(this._employee.status),
       suspendDate: this.formBuilder.control(this._employee.suspendDate),

@@ -16,7 +16,10 @@ import { FormEmployeeComponent } from './employee/form-employee/form-employee.co
 import { EmployeeService } from "app/service/employee.service";
 import { SharedService } from "app/service/shared.service";
 import { routing } from "app/app.routing";
-import { PopUpComponent, FilterDialogComponent } from './pop-up/pop-up.component';
+import { PopUpComponent } from './pop-up/pop-up-delete/pop-up.component';
+import { PopUpFilterComponent } from './pop-up/pop-up-filter/pop-up-filter.component';
+import { lookupListToken, lookupLists } from "./providers";
+import { LocationService } from "app/service/location.service";
 
 
 @NgModule({
@@ -28,11 +31,11 @@ import { PopUpComponent, FilterDialogComponent } from './pop-up/pop-up.component
     EmployeeComponent,
     FormEmployeeComponent,
     PopUpComponent,
-    FilterDialogComponent
+    PopUpFilterComponent
   ],
   entryComponents: [
     PopUpComponent,
-    FilterDialogComponent
+    PopUpFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,11 @@ import { PopUpComponent, FilterDialogComponent } from './pop-up/pop-up.component
     Md2Module.forRoot(),
     routing
   ],
-  providers: [EmployeeService,SharedService],
+  providers: [
+    EmployeeService,
+    SharedService,
+    LocationService,
+    {provide : lookupListToken, useValue : lookupLists}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,17 +15,11 @@ export class ListEmployeeComponent implements OnInit {
   employees : Employee[];
   selectedEmployee : Employee;
   subscription : Subscription;
-  
+  notFound = false;
   constructor(private empService : EmployeeService,
   private reloadService : SharedService,
   private route : Router) { } 
 
-  get(){
-    this.empService.get()
-    .subscribe(employees => {
-      this.employees = employees;
-    });
-  }
   ngOnInit() {
     this.get();
     this.subscription = this.reloadService.notifyObservable$.subscribe((res) => {
@@ -35,8 +29,38 @@ export class ListEmployeeComponent implements OnInit {
     });
   }
 
+  get(){
+    this.empService.get()
+    .subscribe(employees => {
+      this.employees = employees;
+    });
+  }
+
   onEmployeeSelected(empSelect){
     this.selectedEmployee = empSelect;
+  }
+
+  filterEmployee(filter){
+    if(filter.location != "" && filter.gender != ""){
+        this.empService.filterAll(filter.location.value,filter.gender.value)
+        .subscribe(employees => {
+            this.employees = employees;
+        });
+    }else if(filter.location !=null && filter.gender == "" ){
+      console.log(filter.location);
+      this.empService.filterByLocation(filter.location.value)
+        .subscribe(employees => {
+            this.employees = employees;
+        });
+    }else if(filter.location =="" && filter.gender != null){
+      console.log(filter.location);
+      this.empService.filterByGender(filter.gender.value)
+        .subscribe(employees => {
+            this.employees = employees;
+        });
+    }else{
+      this.get();
+    }
   }
 
   addEmployee(){
@@ -53,6 +77,11 @@ export class ListEmployeeComponent implements OnInit {
   search(param){
     this.empService.getByName(param)
     .subscribe(employees => {
+      if(employees.length < 1){
+        this.notFound = true;
+      }else{
+        this.notFound = false;
+      }
       this.employees = employees;
     });
   }

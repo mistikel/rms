@@ -1,7 +1,5 @@
 package com.mitrais.rms.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -95,7 +93,7 @@ public class EmployeeController {
 			throw new Exception();
 		}
 	}
-	
+
 	/**
 	 * get employee by id
 	 * @param id
@@ -151,14 +149,37 @@ public class EmployeeController {
 	 * @param gender
 	 * @return employee
 	 */
-	@GetMapping("employee/filter/{location}/{gender}")
+	@GetMapping("/employees/filterAll")
 	@ResponseBody
-	public List<Employee> getEmployeeFilter(@PathVariable long location, @PathVariable Gender gender){
+	public Iterable<Employee> getEmployeeFilter(@RequestParam long location, @RequestParam Gender gender){
 		try {
 			Location loc = new Location();
 			loc.setId(location);
-			List<Employee> emp = empRepo.findByGenderAndLocation(gender, loc);
-			return emp;
+			return empRepo.findByGenderAndLocation(gender, loc);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			throw new Exception();
+		}
+	}
+	
+	@GetMapping("/employees/filterGender")
+	@ResponseBody
+	public Iterable<Employee> getEmployeeFilterByGender(@RequestParam Gender gender){
+		try {
+			return empRepo.findByGender(gender);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			throw new Exception();
+		}
+	}
+	
+	@GetMapping("/employees/filterLocation")
+	@ResponseBody
+	public Iterable<Employee> getEmployeeFilterByLocation(@RequestParam long location){
+		try {
+			Location loc = new Location();
+			loc.setId(location);
+			return empRepo.findByLocation(loc);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			throw new Exception();

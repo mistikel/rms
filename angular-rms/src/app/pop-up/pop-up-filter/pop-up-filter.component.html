@@ -1,0 +1,10 @@
+<md-select name="gender" id="gender" placeholder="Gender" (change)="onGenderSelected($event)">
+   <md-option *ngFor="let g of lookupLists.genders" [value]="g.value">{{ g.viewValue }}</md-option>
+</md-select>
+
+<md-select name="location" id="location" placeholder="location" (change)="onLocationSelected($event)">
+   <md-option *ngFor="let l of locations" [value]="l.id">{{ l.city }}</md-option>
+</md-select>
+
+<button md-raised-button color="primary" style="float:left; margin-right: 2px;" (click)="popUp.close({action:'no'})">NO</button>
+<button md-raised-button color="accent" style="float:right" (click)="popUp.close({action:'yes',location:location,gender:gender})">YES</button>
