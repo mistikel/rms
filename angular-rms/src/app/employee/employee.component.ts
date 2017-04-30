@@ -22,4 +22,12 @@ export class EmployeeComponent implements OnInit {
     this.router.navigate(["/employees", emp.empId]);
   }
 
+  getImage(){
+    if(this.employee.imageUrl==null){
+          return "src/images/no-image.png";
+        }else{
+          return this.employee.imageUrl;
+        }
+  }
+
 }

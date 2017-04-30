@@ -1,5 +1,5 @@
 <div class="emp-card" (click)="onSelected(employee)" [ngClass]="{ 'emp-card-selected' : employee == selectedEmployee }" >
-    <img class="img-card" [src]="employee.imageUrl">
+    <img class="img-card" [src]="getImage()">
     <div class="card-left">
         <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>
         <a class="emp-info">{{employee.subDivision}} {{employee.division}}<br>

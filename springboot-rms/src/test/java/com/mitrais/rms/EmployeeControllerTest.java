@@ -1,4 +1,4 @@
-package com.mitrais.rms.controller;
+package com.mitrais.rms;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import com.mitrais.rms.controller.EmployeeController;
 import com.mitrais.rms.entity.Employee;
 import com.mitrais.rms.entity.Location;
 import com.mitrais.rms.entity.enumareted.Gender;

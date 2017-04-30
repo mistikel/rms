@@ -1,3 +1,0 @@
-2017-04-29 15:42:36 jdbc[11]: exception
-org.h2.jdbc.JdbcSQLException: Table "EMPLOYEES" not found; SQL statement:
-insert into employees (empId, first_name, last_name, gender, dob, nationality, marital_status, phone, sub_division, status, suspend_date, hired_date, grade, division, email, image_url, location) values (22, 'Tori', 'Espinet', 'Female', '1973-12-14', 'VIETNAMESE', 'Single', '081368713113', 'Ruby Bootcamp', 'Contract', null, '1992-12-12', 'SE - AN', 'SWD - Green', 'tespinet0@privacy.gov.au', null, 2) [42102-194]

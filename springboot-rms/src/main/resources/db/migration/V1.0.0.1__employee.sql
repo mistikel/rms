@@ -5,7 +5,7 @@ create table t_location (
 );
 
 create table t_employee (
-    emp_id  bigint(19) not null,
+    emp_id  bigint(19) auto_increment not null,
     first_name varchar(45) not null,
     last_name varchar(45) not null,
     gender varchar(6) not null,
@@ -22,6 +22,5 @@ create table t_employee (
     status varchar(20) not null,
     image_url text,
     location bigint(19) not null,
-    primary key (emp_id),
     foreign key (location) references t_location(loc_id)
 );

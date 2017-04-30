@@ -38,8 +38,9 @@ public class EmployeeController {
 	@GetMapping("/employees")
 	@ResponseBody
 	public Iterable<Employee> getEmployees(){
+		Sort.Order sorted = new Sort.Order(Sort.Direction.ASC, "lastName").ignoreCase();
 		try {
-			return empRepo.findAll();
+			return empRepo.findAll(new Sort(sorted));
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			throw new Exception();

@@ -44,7 +44,7 @@ public class Employee {
 	@Column(name="marital_status", nullable=false)
 	private MaritalStatus maritalStatus;
 	
-	@Column(name="phone", nullable=false)
+	@Column(name="phone", unique = true, nullable=false)
 	private String phone;
 	
 	@Column(name="sub_division",nullable=false)

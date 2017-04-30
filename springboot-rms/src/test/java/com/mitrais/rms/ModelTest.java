@@ -1,4 +1,4 @@
-package com.mitrais.rms.entity;
+package com.mitrais.rms;
 
 import static org.junit.Assert.*;
 

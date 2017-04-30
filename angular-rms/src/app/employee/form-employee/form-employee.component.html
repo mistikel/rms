@@ -15,7 +15,10 @@
         <md-select type="text" label="Marital Status" placeholder="Martial Status"floating-label formControlName="maritalStatus">
              <md-option *ngFor="let m of lookupLists.maritalsStatus" [value]="m.value">{{ m.viewValue }}</md-option>
         </md-select>
-        <mdl-textfield type="text" label="Phone" floating-label formControlName="phone"></mdl-textfield>    
+        <mdl-textfield type="text" label="Phone" floating-label formControlName="phone"></mdl-textfield>
+        <md-select type="text" label="Locations" placeholder="Locations"floating-label formControlName="location">
+             <md-option *ngFor="let l of locations" [value]="l.id" (click)="onSelectedLocation(l)">{{ l.city }}</md-option>
+        </md-select>    
     </div>
     <div class=right-form>
         <mdl-textfield type="text" label="Sub Division"  floating-label formControlName="subDivision"></mdl-textfield>
