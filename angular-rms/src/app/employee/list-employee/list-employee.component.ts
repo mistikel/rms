@@ -41,7 +41,10 @@ export class ListEmployeeComponent implements OnInit {
   }
 
   filterEmployee(filter){
-    if(filter.location.value != undefined && filter.gender.value != undefined){
+    if(filter.action == "no"){
+      this.get();
+    }
+    else if(filter.location.value != undefined && filter.gender.value != undefined){
         this.empService.filterAll(filter.location.value,filter.gender.value)
         .subscribe(employees => {
             this.employees = employees;

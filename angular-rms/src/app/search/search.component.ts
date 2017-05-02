@@ -51,9 +51,7 @@ export class SearchComponent implements OnInit {
     })
 
     popUp.afterClosed().subscribe(result =>{
-      if(result.action == "yes"){
         this.filterParam.emit(result);
-      }
     });
   }
 

@@ -6,5 +6,5 @@
    <md-option *ngFor="let l of locations" [value]="l.id">{{ l.city }}</md-option>
 </md-select>
 
-<button md-raised-button color="primary" style="float:left; margin-right: 2px;" (click)="popUp.close({action:'no'})">NO</button>
+<button md-raised-button color="primary" style="float:left; margin-right: 2px;" (click)="popUp.close({action:'no'})">RESET</button>
 <button md-raised-button color="accent" style="float:right" (click)="popUp.close({action:'yes',location:location,gender:gender})">YES</button>
