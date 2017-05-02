@@ -41,6 +41,9 @@ export class ListEmployeeComponent implements OnInit {
   }
 
   filterEmployee(filter){
+    if(filter == undefined ){
+       this.get();
+    }
     if(filter.action == "no"){
       this.get();
     }

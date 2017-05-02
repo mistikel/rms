@@ -2,37 +2,37 @@
     <form  [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
     <div class=left-form>
          <input type="hidden" name="empId" id="empId" formControlName="empId">
-        <mdl-textfield type="text" label="First Name" floating-label formControlName="firstName"></mdl-textfield>
-        <mdl-textfield type="text" label="Last Name" floating-label formControlName="lastName"></mdl-textfield>
-        <md-select name="gender" id="gender" placeholder="Gender" formControlName="gender">
+        <mdl-textfield type="text" label="First Name" required floating-label formControlName="firstName"></mdl-textfield>
+        <mdl-textfield type="text" label="Last Name" required floating-label formControlName="lastName"></mdl-textfield>
+        <md-select name="gender" id="gender" placeholder="Gender" required formControlName="gender">
             <md-option *ngFor="let g of lookupLists.genders" [value]="g.value">{{ g.viewValue }}</md-option>
         </md-select>
-        <md2-datepicker class="date-picker" openOnFocus="true" type="date" placeholder="Date Of Birth" style="width: 300px"
+        <md2-datepicker class="date-picker" openOnFocus="true" type="date"  required placeholder="Date Of Birth" style="width: 300px"
            formControlName="dob"></md2-datepicker>
-        <md-select type="text" label="Nationality" placeholder="Nationality" floating-label formControlName="nationality">
+        <md-select type="text" label="Nationality" placeholder="Nationality" required floating-label formControlName="nationality">
             <md-option *ngFor="let n of lookupLists.nationality" [value]="n.value">{{ n.viewValue }}</md-option>
         </md-select>
-        <md-select type="text" label="Marital Status" placeholder="Martial Status"floating-label formControlName="maritalStatus">
+        <md-select type="text" label="Marital Status" required placeholder="Martial Status"floating-label formControlName="maritalStatus">
              <md-option *ngFor="let m of lookupLists.maritalsStatus" [value]="m.value">{{ m.viewValue }}</md-option>
         </md-select>
-        <mdl-textfield type="text" label="Phone" floating-label formControlName="phone"></mdl-textfield>
-        <md-select type="text" label="Locations" placeholder="Locations"floating-label formControlName="location">
+        <mdl-textfield type="text" label="Phone" required floating-label formControlName="phone"></mdl-textfield>
+        <md-select type="text" label="Locations" required placeholder="Locations"floating-label formControlName="location">
              <md-option *ngFor="let l of locations" [value]="l.id" (click)="onSelectedLocation(l)">{{ l.city }}</md-option>
         </md-select>    
     </div>
     <div class=right-form>
-        <mdl-textfield type="text" label="Sub Division"  floating-label formControlName="subDivision"></mdl-textfield>
-        <mdl-textfield type="text" label="Status" floating-label formControlName="status"></mdl-textfield>
+        <mdl-textfield type="text" label="Sub Division"  required floating-label formControlName="subDivision"></mdl-textfield>
+        <mdl-textfield type="text" label="Status" required floating-label formControlName="status"></mdl-textfield>
         <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Suspend Date" style="width: 300px"
             formControlName="suspendDate"></md2-datepicker>
-        <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Hired Date" style="width: 300px" formControlName="hiredDate"></md2-datepicker>
-        <md-select name="grade" id="grade" placeholder="Grade" formControlName="grade">
+        <md2-datepicker class="date-picker" required openOnFocus="true" format="dd/MM/y" type="date" placeholder="Hired Date" style="width: 300px" formControlName="hiredDate"></md2-datepicker>
+        <md-select name="grade" id="grade" required placeholder="Grade" formControlName="grade">
             <md-option *ngFor="let r of lookupLists.grades" [value]="r.value">{{ r.viewValue }}</md-option>
         </md-select>
-        <md-select fname="division" id="division" placeholder="Division" formControlName="division">
+        <md-select fname="division" required id="division" placeholder="Division" formControlName="division">
             <md-option *ngFor="let d of lookupLists.divisions" [value]="d.value">{{ d.viewValue }}</md-option>
         </md-select>
-        <mdl-textfield type="email" required label="Email" floating-label formControlName="email"></mdl-textfield>    
+        <mdl-textfield type="email" required required label="Email" floating-label formControlName="email"></mdl-textfield>    
     </div>
     <div class="form-img">
         <md-icon (click)="fileInput.click()">camera</md-icon>
